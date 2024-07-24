@@ -1,96 +1,84 @@
-/* Estilos para la sección del próximo episodio */
-.next-episode {
-    background: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    margin: 20px 0;
-    border-radius: 10px;
-    position: relative;
-}
-
-.next-episode h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.episode-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.episode-info p {
-    margin: 5px 0;
-}
-
-#countdown {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 20px 0;
-}
-
-.button {
-    background-color: #ff9900; /* Color de fondo */
-    color: #fff; /* Color del texto */
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.button:hover {
-    background-color: #e68a00;
-    transform: scale(1.05);
-}
-
 /* Estilos para la sección de noticias */
 .news {
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
     padding: 20px;
-    background: rgba(0, 0, 0, 0.3); /* Fondo semi-transparente */
-    color: #fff;
+    margin: 20px 0;
+    border-radius: 10px;
 }
 
 .news-container {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .news-item {
-    background: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
-    border-radius: 10px;
-    overflow: hidden;
-    width: calc(50% - 20px);
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px 0;
 }
 
 .news-item img {
-    width: 100%;
-    height: auto;
+    width: 100px;
+    height: 70px;
+    border-radius: 5px;
+    margin-right: 15px;
 }
 
 .news-info {
-    padding: 10px;
+    color: #fff;
 }
 
-.news-info h3 {
-    font-size: 18px;
-    margin-bottom: 10px;
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.news-info p {
-    margin-bottom: 10px;
+.button:hover {
+    background-color: #e64a19;
 }
 
-/* Estilos para la extensión de fondo */
-.background-extension {
-    background-image: url('images/one-piece-background.jpg'); /* Fondo igual al del carrusel */
-    background-size: cover;
-    background-position: center;
-    height: 400px; /* Ajusta la altura según sea necesario */
-    width: 100%;
-    position: relative;
-    z-index: -1; /* Asegúrate de que esté detrás del contenido */
-    margin-top: 20px; /* Espacio arriba si es necesario */
+/* Estilos para la sección de conteo regresivo */
+.countdown {
+    text-align: center;
+    margin: 20px 0;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.countdown-timer {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* Estilos para la sección de video promocional */
+.video-promo {
+    text-align: center;
+    margin: 20px 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.video-promo h2 {
+    margin-bottom: 15px;
+}
+
+video {
+    width: 80%;
+    max-width: 600px;
+    border-radius: 10px;
 }
