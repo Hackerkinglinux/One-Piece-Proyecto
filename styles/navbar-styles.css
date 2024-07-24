@@ -1,10 +1,11 @@
 /* Estilos para la barra de navegación */
 .navbar {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo transparente */
+    padding: 10px;
     position: fixed;
-    top: 0;
     width: 100%;
+    top: 0;
+    left: 0;
     z-index: 1000;
 }
 
@@ -15,27 +16,25 @@
 }
 
 .logo img {
-    width: 120px;
+    width: 50px;
+    height: auto;
 }
 
 .menu {
     display: flex;
     align-items: center;
-    gap: 20px;
 }
 
 .menu-item {
     color: #fff;
+    margin: 0 15px;
     text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s;
 }
 
 .menu-item:hover {
-    color: #ffcc00;
+    text-decoration: underline;
 }
 
-/* Estilos para el botón "Explorar" y el submenú */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -43,28 +42,19 @@
 
 .dropbtn {
     background-color: transparent;
-    color: #fff;
-    font-size: 16px;
     border: none;
+    color: #fff;
     cursor: pointer;
-    padding: 10px;
-    transition: color 0.3s, background-color 0.3s;
-}
-
-.dropbtn:hover {
-    color: #ffcc00;
+    font-size: 16px;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: #333;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     border-radius: 5px;
-    top: 100%;
-    left: 0;
 }
 
 .dropdown-content a {
@@ -72,18 +62,16 @@
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    transition: background-color 0.3s;
 }
 
 .dropdown-content a:hover {
     background-color: #575757;
 }
 
-/* Mostrar el submenú al pasar el ratón */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
 .dropdown:hover .dropbtn {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: #575757;
 }

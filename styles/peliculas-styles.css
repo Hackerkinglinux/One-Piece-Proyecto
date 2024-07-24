@@ -1,42 +1,56 @@
+/* Estilos para el directorio de películas de One Piece */
 .movie-directory {
-    padding: 100px 20px 20px; /* Ajustar para tener en cuenta la barra de navegación */
+    padding: 20px;
+    background: #f4f4f4;
 }
 
 .movie-list {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: center;
 }
 
 .movie-item {
-    background-color: #333;
-    padding: 10px;
-    border-radius: 12px;
+    background: #fff;
+    border-radius: 10px;
     overflow: hidden;
-    width: 200px;
-    text-align: center;
-    animation: float-in 1s ease-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33% - 20px);
+    transition: transform 0.3s ease;
+}
+
+.movie-item:hover {
+    transform: scale(1.05);
 }
 
 .movie-item img {
     width: 100%;
-    border-radius: 12px;
+    height: auto;
 }
 
-.download-button {
-    background-color: #ffcc00;
-    color: black;
+.movie-info {
+    padding: 15px;
+}
+
+.movie-info h3 {
+    margin: 0 0 10px;
+}
+
+.movie-info p {
+    margin: 0 0 10px;
+}
+
+.button {
+    background-color: #007bff;
+    color: #fff;
     padding: 10px 20px;
     text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 10px;
-    transition: 0.3s;
     border-radius: 5px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
 }
 
-.download-button:hover {
-    background-color: #ffd700;
-    color: white;
+.button:hover {
+    background-color: #0056b3;
 }
+
