@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sombreros de Paja - Inicio</title>
-    <link rel="stylesheet" href="styles/navbar-styles.css"> <!-- Barra de navegación -->
-    <link rel="stylesheet" href="styles/animations.css"> <!-- Animaciones -->
-    <link rel="stylesheet" href="styles/homepage-styles.css"> <!-- Página de inicio -->
-    <link rel="stylesheet" href="styles/logo-styles.css"> <!-- Estilos del logo -->
+    <link rel="stylesheet" href="styles/navbar-styles.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    <link rel="stylesheet" href="styles/logo-styles.css">
+    <link rel="stylesheet" href="styles/homepage-styles.css">
+    <link rel="stylesheet" href="styles/social-styles.css">
 </head>
 <body>
     <header class="navbar">
@@ -33,26 +34,12 @@
             <h2>One Piece</h2>
             <p>12+ | Sub | Dob</p>
             <p>La historia sigue a Monkey D. Luffy y su tripulación en su búsqueda del tesoro supremo, el One Piece, para convertirse en el Rey de los Piratas.</p>
-            <a href="one-piece.html" class="button">COMENZAR A VER E1</a>
+            <a href="#" class="button">COMENZAR A VER E1</a>
         </div>
     </div>
 
     <main>
-        <!-- Nueva sección para el próximo episodio -->
-        <section class="next-episode">
-            <h2>Próximo Episodio</h2>
-            <div class="episode-info">
-                <p><strong>Título:</strong> Garp vs Hachinouse</p>
-                <p><strong>Capítulo:</strong> 1113</p>
-                <p><strong>Estreno:</strong> En breve</p>
-                <div id="countdown"></div>
-                <a href="one-piece.html" class="button">Ir al Directorio</a>
-            </div>
-        </section>
-
-        <!-- Sección de noticias -->
         <section class="news">
-            <h2>Noticias</h2>
             <div class="news-container">
                 <div class="news-item">
                     <img src="images/one-piece-remake.jpg" alt="Noticia 1">
@@ -66,11 +53,30 @@
             </div>
         </section>
 
-        <!-- Fondo que cubre desde el final del carrusel hasta el pie de página -->
-        <div class="background-extension"></div>
+        <section class="countdown">
+            <h2>Próximo Episodio</h2>
+            <div class="countdown-timer" id="countdown"></div>
+            <a href="one-piece-peliculas.html" class="button">Ver Directorio de Episodios</a>
+        </section>
+
+        <section class="video-promo">
+            <h2>Entrada Épica: Garp vs Hachinouse</h2>
+            <p>Prepárate para la batalla épica de Garp contra Hachinouse en el próximo episodio de One Piece. ¡No te lo pierdas!</p>
+            <video controls>
+                <source src="videos/garp-impact.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+            </video>
+        </section>
     </main>
 
     <footer>
+        <div class="social-icons">
+            <a href="https://wa.me/1234567890" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp"></a>
+            <a href="https://t.me/yourchannel" target="_blank"><img src="images/telegram.png" alt="Telegram"></a>
+            <a href="https://www.facebook.com/yourpage" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/yourprofile" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
+            <a href="https://twitter.com/yourprofile" target="_blank"><img src="images/twitter.png" alt="Twitter"></a>
+        </div>
         <p>&copy; 2024 Sombreros de Paja. Todos los derechos reservados.</p>
     </footer>
     <script src="scripts/animations.js"></script>
