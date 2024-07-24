@@ -1,25 +1,21 @@
-// Función para contar hacia atrás hasta la fecha del próximo episodio
-document.addEventListener('DOMContentLoaded', () => {
-    const countdownElement = document.getElementById('countdown');
-    const releaseDate = new Date('2024-07-31T00:00:00'); // Fecha de estreno del episodio
+// Función para actualizar el contador de cuenta regresiva
+function updateCountdown() {
+    const countdownDate = new Date("2024-07-28T00:00:00").getTime(); // Ajusta la fecha y hora
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
 
-    function updateCountdown() {
-        const now = new Date();
-        const timeDifference = releaseDate - now;
+    // Cálculo del tiempo restante
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        if (timeDifference <= 0) {
-            countdownElement.innerHTML = "¡Ya está disponible!";
-            return;
-        }
+    // Mostrar el resultado en el elemento con id="countdown"
+    document.getElementById("countdown").innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
 
-        const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+    // Actualizar el contador cada 1 segundo
+    setTimeout(updateCountdown, 1000);
+}
 
-        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
-});
+// Iniciar el contador al cargar la página
+window.onload = updateCountdown;
