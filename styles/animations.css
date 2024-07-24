@@ -1,0 +1,90 @@
+/* Animations for buttons and other elements */
+.button {
+    background-color: #ffcc00;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 2px;
+    transition: 0.3s;
+    border-radius: 12px;
+}
+
+.button:hover {
+    background-color: #ff9900;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Futuristic styles for carousel */
+.carousel-item {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slide-in 1s ease-out;
+}
+
+@keyframes slide-in {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Futuristic styles for news section */
+.news {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 12px;
+    margin: 20px;
+    animation: fade-in 1s ease-out;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.news-item {
+    display: flex;
+    margin-bottom: 20px;
+    animation: float-in 1s ease-out;
+}
+
+@keyframes float-in {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.news-item img {
+    width: 150px;
+    height: 100px;
+    margin-right: 20px;
+    border-radius: 8px;
+}
+
+.news-content {
+    flex: 1;
+}

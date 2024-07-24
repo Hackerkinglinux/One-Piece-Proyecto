@@ -1,0 +1,22 @@
+/* Styles for social media icons */
+.social {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-top: 2px solid #ffcc00;
+}
+
+.social a {
+    margin: 0 10px;
+}
+
+.social img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.social img:hover {
+    transform: scale(1.2);
+}
