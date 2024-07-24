@@ -1,3 +1,4 @@
+/* Estilos para los iconos de redes sociales */
 .social-icons {
     display: flex;
     justify-content: center;
@@ -11,8 +12,8 @@
 }
 
 .social-icons img {
-    width: 30px; /* Ajusta este tamaño según sea necesario */
-    height: 30px; /* Mantén la proporción para que los iconos no se deformen */
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
 }
 

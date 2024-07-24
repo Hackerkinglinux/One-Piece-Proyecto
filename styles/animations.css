@@ -1,0 +1,18 @@
+/* Animaciones para botones */
+.button {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.button.animate {
+    transform: scale(1.05);
+    background-color: #ff9900; /* Cambia al color que desees */
+}
+
+/* Animaciones para iconos de redes sociales */
+.social-icons img {
+    transition: transform 0.3s ease;
+}
+
+.social-icons img.scale {
+    transform: scale(1.1);
+}
