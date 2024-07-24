@@ -1,0 +1,96 @@
+/* Estilos para la sección del próximo episodio */
+.next-episode {
+    background: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin: 20px 0;
+    border-radius: 10px;
+    position: relative;
+}
+
+.next-episode h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.episode-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.episode-info p {
+    margin: 5px 0;
+}
+
+#countdown {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.button {
+    background-color: #ff9900; /* Color de fondo */
+    color: #fff; /* Color del texto */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button:hover {
+    background-color: #e68a00;
+    transform: scale(1.05);
+}
+
+/* Estilos para la sección de noticias */
+.news {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3); /* Fondo semi-transparente */
+    color: #fff;
+}
+
+.news-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.news-item {
+    background: rgba(0, 0, 0, 0.8); /* Fondo semi-transparente */
+    border-radius: 10px;
+    overflow: hidden;
+    width: calc(50% - 20px);
+}
+
+.news-item img {
+    width: 100%;
+    height: auto;
+}
+
+.news-info {
+    padding: 10px;
+}
+
+.news-info h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.news-info p {
+    margin-bottom: 10px;
+}
+
+/* Estilos para la extensión de fondo */
+.background-extension {
+    background-image: url('images/one-piece-background2.jpg'); /* Fondo igual al del carrusel */
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Ajusta la altura según sea necesario */
+    width: 100%;
+    position: relative;
+    z-index: -1; /* Asegúrate de que esté detrás del contenido */
+    margin-top: 20px; /* Espacio arriba si es necesario */
+}
