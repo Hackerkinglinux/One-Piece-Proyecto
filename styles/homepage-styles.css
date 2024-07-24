@@ -85,7 +85,7 @@
 
 /* Estilos para la extensión de fondo */
 .background-extension {
-    background-image: url('images/one-piece-background2.jpg'); /* Fondo igual al del carrusel */
+    background-image: url('images/one-piece-background.jpg'); /* Fondo igual al del carrusel */
     background-size: cover;
     background-position: center;
     height: 400px; /* Ajusta la altura según sea necesario */
