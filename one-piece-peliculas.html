@@ -1,74 +1,41 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Películas de One Piece</title>
-    <link rel="stylesheet" href="styles/peliculas-styles-y-serie-styles.css">
-    <link rel="stylesheet" href="styles/animation.css">
+    <link rel="stylesheet" href="styles/navbar-styles.css">
+    <link rel="stylesheet" href="styles/peliculas-styles.css">
+    <link rel="stylesheet" href="styles/animations.css">
 </head>
 <body>
-    <header>
-        <div class="top-bar"> 
-            <div class="left">
-                <a href="index.html">
-                    <img src="images/logosama.jpg" alt="Logo" class="logo">
-                </a>                
-                <nav>
-                    <div class="dropdown">
-                        <button class="dropbtn">Explorar</button>
-                        <div class="dropdown-content">
-                            <a href="one-piece-peliculas.html">Películas</a>
-                            <a href="one-piece-sagas.html">Serie</a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-            <div class="right">
-                <button id="searchIcon"><img src="images/lupa.jpg" alt="Buscar" style="width: 20px; cursor: pointer;"></button>
-                <a href="#"><img src="images/logo-sama.png" alt="Perfil" style="width: 30px; border-radius: 50%;"></a>
-            </div>
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="logo"><img src="images/logo1.png" alt="Logo 1"></a>
+            <nav class="menu">
+                <a href="peliculas.html" class="menu-item">Películas</a>
+                <a href="serie.html" class="menu-item">Serie</a>
+                <a href="ovas.html" class="menu-item">OVAs</a>
+            </nav>
+            <a href="index.html" class="logo"><img src="images/logo2.png" alt="Logo 2"></a>
         </div>
     </header>
-
     <main>
         <section class="movie-directory">
             <h2>Películas de One Piece</h2>
             <div class="movie-list">
                 <div class="movie-item">
-                    <img src="images/Movie-1.jpg" alt="Movie 1">
-                    <div class="movie-info">
-                        <h3>Película 1</h3>
-                        <p>Título: Aventura en el Mar</p>
-                        <a href="#" class="button">Ver Más</a>
-                        <a href="#" class="download-button">Descargar</a>
-                    </div>
+                    <img src="images/movie1.jpg" alt="Película 1">
+                    <a href="#" class="download-button">Descargar</a>
                 </div>
                 <div class="movie-item">
-                    <img src="images/Movie-2.jpg" alt="Movie 2">
-                    <div class="movie-info">
-                        <h3>Película 2</h3>
-                        <p>Título: El Inicio del Viaje</p>
-                        <a href="#" class="button">Ver Más</a>
-                        <a href="#" class="download-button">Descargar</a>
-                    </div>
+                    <img src="images/movie2.jpg" alt="Película 2">
+                    <a href="#" class="download-button">Descargar</a>
                 </div>
                 <!-- Más películas -->
             </div>
         </section>
     </main>
-
-    <footer>
-        <div class="social">
-            <a href="#"><img src="images/whatsapp.png" alt="WhatsApp"></a>
-            <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
-            <a href="#"><img src="images/instagram.png" alt="Instagram"></a>
-            <a href="#"><img src="images/telegram.jpg" alt="Telegram"></a>
-            <a href="#"><img src="images/twitter.png" alt="Twitter"></a>
-        </div>
-    </footer>
-
-    <script src="scripts/animation.js"></script>
+    <script src="scripts/animations.js"></script>
 </body>
 </html>
