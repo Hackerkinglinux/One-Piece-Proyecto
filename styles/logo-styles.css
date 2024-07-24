@@ -2,7 +2,7 @@
 
 .top-bar .logo {
     display: inline-block;
-    background-image: url('images-logos/animesama-logo-trasnparentepng'); /* Ajusta la ruta si es necesario */
+    background-image: url('images/logosama.png'); /* Ajusta la ruta si es necesario */
     background-size: contain;
     background-repeat: no-repeat;
     width: 150px; /* Ajusta el tamaño según tu preferencia */
