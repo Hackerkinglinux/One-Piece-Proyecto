@@ -11,8 +11,8 @@
 }
 
 .social-icons img {
-    width: 40px;
-    height: 40px;
+    width: 30px; /* Ajusta este tamaño según sea necesario */
+    height: 30px; /* Mantén la proporción para que los iconos no se deformen */
     border-radius: 50%;
 }
 
