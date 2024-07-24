@@ -66,7 +66,7 @@
 
 .hero {
     padding: 20px;
-    background: url('images/one-piece-background.jpg') no-repeat center center;
+    background: url('images/one-piece-background2.jpg') no-repeat center center;
     background-size: cover;
     color: #fff;
     text-align: center;
@@ -90,4 +90,21 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+}
+
+.footer-social a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.footer-social a img:hover {
+    transform: scale(1.1);
 }

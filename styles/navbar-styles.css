@@ -75,3 +75,45 @@
 .dropdown:hover .dropbtn {
     background-color: #575757;
 }
+
+/* Estilos para el fondo de la página y secciones */
+body {
+    background: url('images/one-piece-background2.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 0;
+    background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    color: white;
+}
+
+.social {
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro semi-transparente */
+    color: white;
+    padding: 20px 0;
+}
+
+/* Estilos para los íconos de redes sociales */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.social-icons a:hover {
+    transform: scale(1.1);
+}
