@@ -3,69 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Piece Proyecto</title>
-    <link rel="stylesheet" href="styles/navbar-styles.css
-    <link rel="stylesheet" href="styles/animations.css">
-    <link rel="stylesheet" href="styles/menu-style.css">
-    <link rel="stylesheet" href="styles/homepage-styles.css">
-    <script src="scripts/animations.js" defer></script>
+    <title>One Piece - Página Personal</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: #000;
+        }
+        .hero-banner {
+            background: linear-gradient(to right, #00f, #f0f);
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+            font-size: 2em;
+        }
+        .welcome-section {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            margin: 20px;
+            border-radius: 10px;
+        }
+        .video-photo-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px;
+        }
+        .video-section {
+            flex: 1;
+            margin-right: 20px;
+        }
+        .photo-section {
+            flex: 1;
+            text-align: center;
+        }
+        .photo-section img {
+            max-width: 100%;
+            border: 2px solid #00f;
+            border-radius: 10px;
+        }
+        .info-menu {
+            margin-top: 10px;
+            background: #222;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .info-menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .info-menu ul li {
+            margin: 5px 0;
+        }
+        .info-menu ul li a {
+            color: #00f;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <div class="navbar-container">
-            <div class="logo">
-                <img src="images/logo.jpg" alt="Logo"> <!-- Cambia esto a la ruta de tu logo -->
-            </div>
-            <div class="menu">
-                <a href="#" class="menu-item">Inicio</a>
-                <a href="#" class="menu-item">Explorar</a>
-                    <div class="dropdown-content">
-                        <a href="one-piece.html">Serie</a>
-                        <a href="one-piece-pelis.html">Peliculas</a>
-                        <a href="ovas.html">Ovas</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="hero-banner">
+        Bienvenido al Mundo de One Piece
     </div>
 
-    <!-- Contenido Principal -->
-    <div class="content">
-        <!-- Banner -->
-        <div class="banner">
-            <img src="images/banner-top.jpg" alt="Banner"> <!-- Cambia esto a la ruta de tu banner -->
-        </div>
+    <div class="welcome-section">
+        <h1>¡Explora el Universo de One Piece!</h1>
+        <p>Aquí encontrarás todo lo que necesitas saber sobre la increíble serie One Piece.</p>
+    </div>
 
-        <!-- Video y Noticias -->
-        <div class="main-section">
-            <div class="video-section">
-                <h2 class="title">Entrada Épica: Garp vs Hachinouse</h2>
-                <video controls>
-                    <source src="videos/garp-impact.mp4" type="video/mp4"> <!-- Cambia esto a la ruta de tu video -->
-                    Tu navegador no soporta la etiqueta de video.
-                </video>
-            </div>
-            <div class="news-section">
-                <div class="floating-news">
-                    <img src="images/banner-video.jpeg" alt="Garp" class="garp-image"> <!-- Imagen de Garp -->
-                    <div class="anime-info">
-                        <p>Nombre: One Piece</p>
-                        <p>Tipo: Serie</p>
-                        <p>Episodios: 1113</p>
-                        <p>Estudio: Toei Animation</p>
-                        <p>Año: 2024</p>
-                    </div>
-                </div>
-                <div class="floating-news">
-                    <img src="images/one-piece-remake.jpg" alt="Noticia"> <!-- Cambia esto a la ruta de tu imagen de noticia -->
-                    <p><strong>The One Piece:</strong> Entérate de las últimas novedades y eventos de One Piece! <a href="#">Leer Más</a></p>
-                </div>
+    <div class="video-photo-section">
+        <div class="video-section">
+            <video width="100%" controls>
+                <source src="video-one-piece.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
+        </div>
+        <div class="photo-section">
+            <img src="foto-one-piece.jpg" alt="One Piece">
+            <div class="info-menu">
+                <ul>
+                    <li><a href="#">Historia</a></li>
+                    <li><a href="#">Personajes</a></li>
+                    <li><a href="#">Episodios</a></li>
+                </ul>
             </div>
         </div>
-
-        <!-- Contador -->
-        <div id="countdown"></div>
     </div>
 </body>
 </html>
+
