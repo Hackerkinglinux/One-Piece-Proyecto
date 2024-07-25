@@ -42,7 +42,7 @@
 
         /* Estilo del banner de héroe */
         .hero-banner {
-            background: url('fondo-banner.jpg') no-repeat center center fixed;
+            background: url('images/banner-top.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #fff;
             text-align: center;
@@ -156,6 +156,28 @@
         .cursor:hover {
             background: #f0f;
         }
+
+        /* Botones de control de video */
+        .video-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .video-controls button {
+            background: #0ff;
+            border: none;
+            color: #000;
+            padding: 10px 20px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .video-controls button:hover {
+            background: #f0f;
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -175,18 +197,22 @@
     <div class="video-photo-section">
         <div class="video-section">
             <video id="videoPlayer" width="100%" controls>
-                <source src="video-one-piece-1.mp4" type="video/mp4">
+                <source src="videos/garp-impact.mp4" type="video/mp4">
                 Tu navegador no soporta el formato de video.
             </video>
+            <div class="video-controls">
+                <button id="prevVideo">Anterior</button>
+                <button id="nextVideo">Siguiente</button>
+            </div>
         </div>
         <div class="photo-section">
             <img src="images/banner-video.jpeg" alt="One Piece">
             <div class="info-menu">
                 <ul>
-                    <li><a href="#">Historia</a></li>
-                    <li><a href="#">Personajes</a></li>
-                    <li><a href="#">Episodios</a></li>
-                </ul>
+                    <li><a href="#">Garp Galaxy Impact Cine</a></li>
+                    <li><a href="#">Estreno 31/7/2024</a></li>
+                    <li><a href="#">Episodio 1113</a></li>
+                </ul>  
             </div>
         </div>
     </div>
@@ -207,7 +233,7 @@
             'videos/garp-impact.mp4',
             'videos/garp-impact2.mp4',
             'videos/garp-impact3.mp4',
-            'videos/-one-piece-4.mp4'
+            'videos/garp-impact4.mp4'
         ];
         
         let currentVideoIndex = 0;
@@ -220,10 +246,20 @@
             videoPlayer.play();
         });
 
-        // Inicializar el primer video
-        videoPlayer.src = videoSources[currentVideoIndex];
+        // Botón para el video anterior
+        document.getElementById('prevVideo').addEventListener('click', () => {
+            currentVideoIndex = (currentVideoIndex - 1 + videoSources.length) % videoSources.length;
+            videoPlayer.src = videoSources[currentVideoIndex];
+            videoPlayer.play();
+        });
+
+        // Botón para el siguiente video
+        document.getElementById('nextVideo').addEventListener('click', () => {
+            currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+            videoPlayer.src = videoSources[currentVideoIndex];
+            videoPlayer.play();
+        });
     </script>
-    <div class="cursor"></div>
 </body>
 </html>
 
