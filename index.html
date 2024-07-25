@@ -18,52 +18,56 @@
             </div>
             <div class="menu">
                 <a href="#" class="menu-item">Inicio</a>
-                <a href="#" class="menu-item">Explorar</a>
                 <div class="dropdown">
                     <button class="dropbtn">Géneros</button>
                     <div class="dropdown-content">
                         <a href="#">Acción</a>
                         <a href="#">Aventura</a>
                         <a href="#">Comedia</a>
+                        <a href="#">Drama</a>
+                        <a href="#">Fantasía</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Banner de Héroe en la parte superior del menú -->
-    <div class="hero-banner">
-        <img src="images/banner-top.jpg" alt="Banner Top"> <!-- Cambia esto a la ruta de tu imagen -->
-    </div>
-
-    <!-- Contenido de la página -->
+    <!-- Contenido Principal -->
     <div class="content">
-        <div class="episode-preview">
-            <h2>Entrada Épica: Garp vs Hachinouse</h2>
-            <p>Prepárate para la batalla épica de Garp contra Hachinouse en el próximo episodio de One Piece. ¡No te lo pierdas!</p>
-            <div class="video-container">
-                <video src="videos/garp-impact.mp4" controls></video>
-                <img src="images/banner-video.jpeg" alt="Imagen junto al video"> <!-- Cambia esto a la ruta de tu imagen -->
+        <!-- Banner -->
+        <div class="banner">
+            <img src="images/banner-top.jpg" alt="Banner"> <!-- Cambia esto a la ruta de tu banner -->
+        </div>
+
+        <!-- Video y Noticias -->
+        <div class="main-section">
+            <div class="video-section">
+                <h2 class="title">Entrada Épica: Garp vs Hachinouse</h2>
+                <video controls>
+                    <source src="videos/garp-impact.mp4" type="video/mp4"> <!-- Cambia esto a la ruta de tu video -->
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
             </div>
-            <div class="countdown" id="countdown">
-                <h2>Próximo Episodio</h2>
-                <p>2d 19h 31m 34s</p>
-                <a href="#">Ver Directorio de Episodios</a>
+            <div class="news-section">
+                <div class="floating-news">
+                    <img src="images/banner-video.jpeg" alt="Garp" class="garp-image"> <!-- Imagen de Garp -->
+                    <div class="anime-info">
+                        <p>Nombre: One Piece</p>
+                        <p>Tipo: Serie</p>
+                        <p>Episodios: 1113</p>
+                        <p>Estudio: Toei Animation</p>
+                        <p>Año: 2024</p>
+                    </div>
+                </div>
+                <div class="floating-news">
+                    <img src="images/one-piece-remake.jpg" alt="Noticia"> <!-- Cambia esto a la ruta de tu imagen de noticia -->
+                    <p><strong>The One Piece:</strong> Entérate de las últimas novedades y eventos de One Piece! <a href="#">Leer Más</a></p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Noticias flotantes -->
-    <div class="floating-news">
-        <img src="images/one-piece-remake.jpg" alt="Imagen de Noticia"> <!-- Cambia esto a la ruta de tu imagen -->
-        <h3>The One Piece</h3>
-        <p>¡Entérate de las últimas novedades y eventos de One Piece!</p>
-        <a href="#">Leer Más</a>
-    </div>
-
-    <!-- Imagen de fondo -->
-    <div class="background-image">
-        <img src="images/one-piece-background.jpeg" alt="Imagen de Fondo"> <!-- Cambia esto a la ruta de tu imagen -->
+        <!-- Contador -->
+        <div id="countdown"></div>
     </div>
 </body>
 </html>
