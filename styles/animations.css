@@ -26,7 +26,7 @@
 .hero-banner {
     width: 100%;
     height: 200px;
-    background-image: url('images/one-piece-background2.jpg'); /* Cambia esto a la ruta de tu imagen */
+    background-image: url('images/banner-top.jpg'); /* Cambia esto a la ruta de tu imagen */
     background-size: cover;
     background-position: center;
     margin-top: 60px; /* Asegúrate de que esté debajo del menú */
@@ -36,7 +36,7 @@
 .hero-banner-video {
     width: 100%;
     height: 300px;
-    background-image: url('images/garp-impacta.jpeg'); /* Cambia esto a la ruta de tu segunda imagen */
+    background-image: url('images/banner-video.jpeg'); /* Cambia esto a la ruta de tu segunda imagen */
     background-size: cover;
     background-position: center;
     margin-top: 20px; /* Ajusta según sea necesario */
