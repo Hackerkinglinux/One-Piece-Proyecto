@@ -32,3 +32,20 @@ function floatNews() {
 }
 
 setInterval(floatNews, 6000);
+
+// Animación de movimiento lateral de noticias flotantes
+let moveRight = true;
+
+function moveNews() {
+    if (moveRight) {
+        floatingNews.classList.add('move-right');
+        floatingNews.classList.remove('move-left');
+    } else {
+        floatingNews.classList.add('move-left');
+        floatingNews.classList.remove('move-right');
+    }
+    moveRight = !moveRight;
+}
+
+setInterval(moveNews, 5000); // Cambia la posición cada 5 segundos
+
