@@ -162,6 +162,21 @@
         .cursor:hover {
             background: #f0f;
         }
+
+        /* Estilo del reloj */
+        .clock-section {
+            text-align: center;
+            padding: 20px;
+            background: #111;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            animation: fadeIn 2s ease-in-out;
+        }
+        .clock {
+            font-size: 2em;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -176,6 +191,11 @@
     <div class="welcome-section">
         <h1>¡Explora el Universo de One Piece!</h1>
         <p>Aquí encontrarás todo lo que necesitas saber sobre la increíble serie One Piece.</p>
+    </div>
+
+    <div class="clock-section">
+        <div id="clock" class="clock"></div>
+        <p>Próximo estreno de One Piece: <span id="releaseInfo">31 de Julio 2024, 17:00</span></p>
     </div>
 
     <div class="video-photo-section">
@@ -196,6 +216,8 @@
             </div>
         </div>
     </div>
+
+    <div class="cursor"></div>
 
     <script>
         document.addEventListener('mousemove', (e) => {
@@ -227,9 +249,4 @@
         });
 
         // Inicializar el primer video
-        videoPlayer.src = videoSources[currentVideoIndex];
-    </script>
-    <div class="cursor"></div>
-</body>
-</html>
 
