@@ -6,7 +6,6 @@
     <title>Sombreros de Paja - Inicio</title>
     <link rel="stylesheet" href="styles/navbar-styles.css">
     <link rel="stylesheet" href="styles/animations.css">
-    <link rel="stylesheet" href="styles/logo-styles.css">
     <link rel="stylesheet" href="styles/homepage-styles.css">
     <link rel="stylesheet" href="styles/social-styles.css">
 </head>
@@ -25,34 +24,11 @@
                     </div>
                 </div>
             </nav>
-            <a href="index.html" class="logo">
+            <a href="index.html" class="logo"><img src="images/logo2.png" alt="Logo 2"></a>
         </div>
     </header>
 
-    <div class="carousel-item" style="background-image: url('images/one-piece-background2.jpg');">
-        <div class="carousel-content">
-            <h2>One Piece</h2>
-            <p>12+ | Sub | Dob</p>
-            <p>La historia sigue a Monkey D. Luffy y su tripulación en su búsqueda del tesoro supremo, el One Piece, para convertirse en el Rey de los Piratas.</p>
-            <a href="#" class="button">COMENZAR A VER E1</a>
-        </div>
-    </div>
-
     <main>
-        <section class="news">
-            <div class="news-container">
-                <div class="news-item">
-                    <img src="images/one-piece-remake.jpg" alt="Noticia 1">
-                    <div class="news-info">
-                        <h3>Nuevo Arco en One Piece</h3>
-                        <p>¡El próximo arco de One Piece está a la vuelta de la esquina! Prepárate para nuevas aventuras y sorpresas en el mundo de los piratas.</p>
-                        <a href="noticias.html" class="button">Leer Más</a>
-                    </div>
-                </div>
-                <!-- Más noticias -->
-            </div>
-        </section>
-
         <section class="countdown">
             <h2>Próximo Episodio</h2>
             <div class="countdown-timer" id="countdown"></div>
@@ -67,19 +43,23 @@
                 Tu navegador no soporta el elemento de video.
             </video>
         </section>
+
+        <section class="floating-news">
+            <div class="news-content">
+                <img src="images/news2.jpg" alt="News Thumbnail">
+                <div class="news-text">
+                    <h3>Nueva Información</h3>
+                    <p>¡Entérate de las últimas novedades y eventos de One Piece!</p>
+                    <a href="noticias.html" class="button">Leer Más</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
-        <div class="social-icons">
-            <a href="https://wa.me/1234567890" target="_blank"><img src="images/whatsapp.png" alt="WhatsApp"></a>
-            <a href="https://t.me/yourchannel" target="_blank"><img src="images/telegram.png" alt="Telegram"></a>
-            <a href="https://www.facebook.com/yourpage" target="_blank"><img src="images/facebook.png" alt="Facebook"></a>
-            <a href="https://www.instagram.com/yourprofile" target="_blank"><img src="images/instagram.png" alt="Instagram"></a>
-            <a href="https://twitter.com/yourprofile" target="_blank"><img src="images/twitter.png" alt="Twitter"></a>
-        </div>
         <p>&copy; 2024 Sombreros de Paja. Todos los derechos reservados.</p>
     </footer>
+
     <script src="scripts/animations.js"></script>
-    <script src="scripts/countdown.js"></script>
 </body>
 </html>
