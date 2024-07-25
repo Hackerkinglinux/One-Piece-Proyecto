@@ -3,63 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sombreros de Paja - Inicio</title>
+    <title>One Piece Proyecto</title>
     <link rel="stylesheet" href="styles/navbar-styles.css">
     <link rel="stylesheet" href="styles/animations.css">
     <link rel="stylesheet" href="styles/homepage-styles.css">
-    <link rel="stylesheet" href="styles/social-styles.css">
+    <script src="scripts/animations.js" defer></script>
 </head>
 <body>
-    <header class="navbar">
+    <!-- Navbar -->
+    <div class="navbar">
         <div class="navbar-container">
-            <a href="index.html" class="logo"><img src="images/logosama.jpg" alt="Logo 1"></a>
-            <nav class="menu">
-                <a href="index.html" class="menu-item">Inicio</a>
+            <div class="logo">
+                <img src="images/logosama.jpg" alt="Logo">
+            </div>
+            <div class="menu">
+                <a href="#" class="menu-item">Inicio</a>
+                <a href="#" class="menu-item">Explorar</a>
                 <div class="dropdown">
-                    <button class="dropbtn">Explorar</button>
+                    <button class="dropbtn">Géneros</button>
                     <div class="dropdown-content">
-                        <a href="one-piece-peliculas.html">Películas</a>
-                        <a href="one-piece.html">Serie</a>
-                        <a href="ovas.html">OVAs</a>
+                        <a href="#">Acción</a>
+                        <a href="#">Aventura</a>
+                        <a href="#">Comedia</a>
                     </div>
                 </div>
-            </nav>
-            <a href="index.html" class="logo"><img src="images/logo2.png" alt="Logo 2"></a>
+            </div>
         </div>
-    </header>
+    </div>
 
-    <main>
-        <section class="countdown">
+    <!-- Banner de Héroe en la parte superior del menú -->
+    <div class="hero-banner"></div>
+
+    <!-- Contenido de la página -->
+    <div class="content">
+        <div class="countdown" id="countdown">
             <h2>Próximo Episodio</h2>
-            <div class="countdown-timer" id="countdown"></div>
-            <a href="one-piece-peliculas.html" class="button">Ver Directorio de Episodios</a>
-        </section>
-
-        <section class="video-promo">
+            <p>2d 19h 31m 34s</p>
+            <a href="#">Ver Directorio de Episodios</a>
+        </div>
+        <div class="hero-banner-video"></div>
+        <div class="episode-preview">
             <h2>Entrada Épica: Garp vs Hachinouse</h2>
             <p>Prepárate para la batalla épica de Garp contra Hachinouse en el próximo episodio de One Piece. ¡No te lo pierdas!</p>
-            <video controls>
-                <source src="videos/garp-impact.mp4" type="video/mp4">
-                Tu navegador no soporta el elemento de video.
-            </video>
-        </section>
+            <video src="videos/garp-impact.mp4" controls></video>
+        </div>
+    </div>
 
-        <section class="floating-news">
-            <div class="news-content">
-                <img src="images/news2.jpg" alt="News Thumbnail">
-                <div class="news-text">
-                    <h3>Nueva Información</h3>
-                    <p>¡Entérate de las últimas novedades y eventos de One Piece!</p>
-                    <a href="noticias.html" class="button">Leer Más</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 Sombreros de Paja. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="scripts/animations.js"></script>
+    <!-- Noticias flotantes -->
+    <div class="floating-news">
+        <h3>Nueva Información</h3>
+        <p>¡Entérate de las últimas novedades y eventos de One Piece!</p>
+        <a href="#">Leer Más</a>
+    </div>
 </body>
 </html>
