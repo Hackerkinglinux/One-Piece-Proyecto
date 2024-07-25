@@ -23,27 +23,22 @@
 }
 
 /* Estilo para el banner de héroe en la parte superior del menú */
-.hero-banner {
+.hero-banner img {
     width: 100%;
     height: 200px;
-    background-image: url('images/banner-top.jpg'); /* Cambia esto a la ruta de tu imagen */
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
     margin-top: 60px; /* Asegúrate de que esté debajo del menú */
 }
 
 /* Estilo para el banner de héroe en la sección del video */
-.hero-banner-video {
+.hero-banner-video img {
     width: 100%;
     height: 300px;
-    background-image: url('images/banner-video.jpeg'); /* Cambia esto a la ruta de tu segunda imagen */
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
     margin-top: 20px; /* Ajusta según sea necesario */
-    position: relative;
 }
 
-.hero-banner-video::before {
+.hero-banner-video img::before {
     content: "";
     position: absolute;
     top: 0;
