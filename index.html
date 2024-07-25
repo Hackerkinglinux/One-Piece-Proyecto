@@ -174,18 +174,18 @@
 
     <div class="video-photo-section">
         <div class="video-section">
-            <video width="100%" controls>
-                <source src="videos/garp-impact.mp4" type="video/mp4">
+            <video id="videoPlayer" width="100%" controls>
+                <source src="video-one-piece-1.mp4" type="video/mp4">
                 Tu navegador no soporta el formato de video.
             </video>
         </div>
         <div class="photo-section">
-            <img src="images/banner-video.jpeg" alt="One Piece">
+            <img src="foto-one-piece.jpg" alt="One Piece">
             <div class="info-menu">
                 <ul>
-                    <li><a href="#">Garp Galaxy Impact</a></li>
-                    <li><a href="#">Estreno 31/7/2024</a></li>
-                    <li><a href="#">Episodio 1113</a></li>
+                    <li><a href="#">Historia</a></li>
+                    <li><a href="#">Personajes</a></li>
+                    <li><a href="#">Episodios</a></li>
                 </ul>
             </div>
         </div>
@@ -201,6 +201,27 @@
         window.addEventListener('load', () => {
             document.getElementById('loader').style.display = 'none';
         });
+
+        // Lista de videos
+        const videoSources = [
+            'videos/garp-impact.mp4',
+            'videos/garp-impact2.mp4',
+            'videos/garp-impact3.mp4',
+            'videos/-one-piece-4.mp4'
+        ];
+        
+        let currentVideoIndex = 0;
+        const videoPlayer = document.getElementById('videoPlayer');
+        
+        // Reproducir el siguiente video cuando el actual termine
+        videoPlayer.addEventListener('ended', () => {
+            currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+            videoPlayer.src = videoSources[currentVideoIndex];
+            videoPlayer.play();
+        });
+
+        // Inicializar el primer video
+        videoPlayer.src = videoSources[currentVideoIndex];
     </script>
     <div class="cursor"></div>
 </body>
