@@ -236,10 +236,9 @@
             'videos/garp-impact2.mp4',
             'videos/garp-impact3.mp4',
             'videos/garp-impact4.mp4'
-            'videos/garp-impact6.mp4',
+             'videos/garp-impact6.mp4',
             'videos/garp-impact7.mp4',
-            'videos/garp-impact8.mp4',
-            'videos/garp-impact9.mp4'
+            'videos/garp-impact8.mp4'
         ];
         
         let currentVideoIndex = 0;
@@ -254,7 +253,17 @@
 
         // Inicializar el primer video
         videoPlayer.src = videoSources[currentVideoIndex];
+
+        // Función para actualizar el reloj
+        function updateClock() {
+            const now = new Date();
+            const clockElement = document.getElementById('clock');
+            clockElement.textContent = now.toLocaleTimeString();
+        }
+
+        // Actualizar el reloj cada segundo
+        setInterval(updateClock, 1000);
+        updateClock(); // Llamada inicial para mostrar el reloj inmediatamente
     </script>
-    <div class="cursor"></div>
 </body>
 </html>
