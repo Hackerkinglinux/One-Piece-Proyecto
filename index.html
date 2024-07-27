@@ -213,66 +213,6 @@
             50% { transform: scale(1.1); opacity: 0.8; }
             100% { transform: scale(1); opacity: 1; }
         }
-
-        /* Estilo del menú de mapa */
-        #mapMenu {
-            position: fixed;
-            top: 10%;
-            left: 5%;
-            width: 300px;
-            background: rgba(34, 34, 34, 0.9);
-            border: 2px solid #0ff;
-            border-radius: 15px;
-            padding: 15px;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
-            transform: scale(0);
-            transform-origin: top left;
-            transition: transform 0.6s ease-in-out;
-            z-index: 10001;
-        }
-        #mapMenu.open {
-            transform: scale(1);
-        }
-        #mapMenuToggle {
-            cursor: pointer;
-            background: #0ff;
-            color: #000;
-            padding: 10px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 1.2em;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        #mapMenuToggle:hover {
-            background-color: #00aaff;
-            color: #fff;
-        }
-        #mapMenu ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-        #mapMenu ul li {
-            margin: 10px 0;
-        }
-        #mapMenu ul li a {
-            color: #0ff;
-            text-decoration: none;
-            font-size: 1.2em;
-            transition: background-color 0.3s, transform 0.3s;
-            display: inline-block;
-            padding: 10px;
-            border-radius: 5px;
-        }
-        #mapMenu ul li a:hover {
-            background-color: #0ff;
-            transform: scale(1.1);
-        }
-
-        /* Contenidos adicionales */
-        .container {
-            padding: 20px;
-        }
     </style>
 </head>
 <body>
@@ -281,90 +221,72 @@
     </div>
 
     <div class="hero-banner">
-        <h1>One Piece</h1>
+        Bienvenido al Mundo de One Piece
     </div>
 
-    <div class="container">
-        <div class="welcome-section">
-            <h2>¡Bienvenido a la página de One Piece!</h2>
-            <p>Explora el mundo de One Piece con noticias, videos y más.</p>
-        </div>
+    <div class="welcome-section">
+        <h1>¡Explora el Universo de One Piece!</h1>
+        <p>Aquí encontrarás todo lo que necesitas saber sobre la increíble serie One Piece.</p>
+    </div>
 
-        <div class="video-photo-section">
-            <div class="video-section">
-                <video src="videos/onepiece-intro.mp4" controls></video>
-            </div>
-            <div class="photo-section">
-                <img src="images/onepiece-photo.jpg" alt="One Piece">
-                <div class="info-menu">
-                    <ul>
-                        <li><a href="#noticias">Últimas Noticias</a></li>
-                        <li><a href="#episodios">Episodios</a></li>
-                        <li><a href="#merch">Merchandising</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+    <div class="clock-section">
+        <div id="clock" class="clock"></div>
+        <p>Próximo estreno de One Piece: <span id="releaseInfo">4 de Julio 2024, 17:00</span></p>
+    </div>
 
-        <div class="clock-section">
-            <h2>Reloj de la Aventura</h2>
-            <div class="clock" id="clock">00:00:00</div>
+    <div class="video-photo-section">
+        <div class="video-section">
+            <video id="videoPlayer" width="100%" controls>
+                <source src="videos/garp-impact.mp4" type="video/mp4">
+                Tu navegador no soporta el formato de video.
+            </video>
         </div>
-
-        <div class="bender-section">
-            <h2>Diseñador el gran Bender</h2>
-            <div class="bender-images">
-                <img src="images/episode1.jpg" alt="Episodio 1">
-                <img src="images/episode2.jpg" alt="Episodio 2">
-                <img src="images/episode3.jpg" alt="Episodio 3">
+        <div class="photo-section">
+            <img src="images/banner-video.jpeg" alt="One Piece">
+            <div class="info-menu">
+                <ul>
+                    <li><a href="#">Garp Galaxy Impact Cine</a></li>
+                    <li><a href="#">Estreno 4/7/2024</a></li>
+                    <li><a href="#">Más Información</a></li>
+                </ul>
             </div>
         </div>
+    </div>
 
-        <div id="mapMenu">
-            <div id="mapMenuToggle">Menú del Mapa</div>
-            <ul>
-                <li><a href="#mapa1">Mapa 1</a></li>
-                <li><a href="#mapa2">Mapa 2</a></li>
-                <li><a href="#mapa3">Mapa 3</a></li>
-            </ul>
+    <div class="bender-section">
+        <h2>Diseñador el gran Bender</h2>
+        <div class="bender-images">
+            <img src="images/capitulos.jpg" alt="Capítulo 1110">
+            <img src="images/capitulos.jpg" alt="Capítulo 1111">
+            <img src="images/capitulos.jpg" alt="Capítulo 1112">
         </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Cargar y ocultar el loader
-            const loader = document.getElementById('loader');
-            setTimeout(() => loader.style.display = 'none', 2000);
+        // Script para el reloj
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
 
-            // Controlar el reloj en tiempo real
-            function updateClock() {
-                const now = new Date();
-                const hours = String(now.getHours()).padStart(2, '0');
-                const minutes = String(now.getMinutes()).padStart(2, '0');
-                const seconds = String(now.getSeconds()).padStart(2, '0');
-                document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
-            }
-            setInterval(updateClock, 1000);
+        // Script para eliminar el loader
+        window.addEventListener('load', () => {
+            document.getElementById('loader').style.display = 'none';
+        });
 
-            // Controlar la animación del menú del mapa
-            const mapMenu = document.getElementById('mapMenu');
-            const mapMenuToggle = document.getElementById('mapMenuToggle');
-            mapMenuToggle.addEventListener('click', () => {
-                mapMenu.classList.toggle('open');
-            });
-
-            // Controlar el cursor personalizado
-            const cursor = document.createElement('div');
-            cursor.className = 'cursor';
-            document.body.appendChild(cursor);
-
-            document.addEventListener('mousemove', (e) => {
-                cursor.style.top = `${e.clientY}px`;
-                cursor.style.left = `${e.clientX}px`;
-            });
+        // Script para cursor personalizado
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.querySelector('.cursor');
+            cursor.style.left = `${e.pageX}px`;
+            cursor.style.top = `${e.pageY}px`;
         });
     </script>
+
+    <div class="cursor"></div>
 </body>
 </html>
-
-
