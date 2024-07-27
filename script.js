@@ -1,32 +1,22 @@
-document.getElementById('themeToggle').addEventListener('click', function() {
-    document.body.classList.toggle('light-theme');
+ // Script para el reloj
+ function updateClock() {
+    const now = new Date();
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// Script para eliminar el loader
+window.addEventListener('load', () => {
+    document.getElementById('loader').style.display = 'none';
 });
 
-// Ejemplo de notificación push (requiere HTTPS y permiso del usuario)
-if ('Notification' in window && navigator.serviceWorker) {
-    navigator.serviceWorker.register('sw.js').then(function(registration) {
-        console.log('Service Worker registrado con éxito:', registration);
-    }).catch(function(error) {
-        console.error('Error al registrar el Service Worker:', error);
-    });
-}
-
-function mostrarNotificacion() {
-    if (Notification.permission === 'granted') {
-        navigator.serviceWorker.ready.then(function(registration) {
-            registration.showNotification('¡Nuevo episodio de One Piece disponible!', {
-                body: 'Haz clic aquí para verlo ahora.',
-                icon: 'https://example.com/icon.png',
-                tag: 'one-piece-notification'
-            });
-        });
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    if (Notification.permission !== 'granted' && Notification.permission !== 'denied') {
-        Notification.requestPermission();
-    }
-    // Simulación de notificación después de 10 segundos
-    setTimeout(mostrarNotificacion, 10000);
+// Script para cursor personalizado
+document.addEventListener('mousemove', (e) => {
+    const cursor = document.querySelector('.cursor');
+    cursor.style.left = `${e.pageX}px`;
+    cursor.style.top = `${e.pageY}px`;
 });
