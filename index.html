@@ -177,6 +177,42 @@
             font-size: 2em;
             font-weight: bold;
         }
+
+        /* Sección de "Diseñador el gran Bender" */
+        .bender-section {
+            text-align: center;
+            padding: 30px;
+            background: #111;
+            margin: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+            animation: fadeIn 2s ease-in-out;
+        }
+        .bender-section h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #0ff;
+        }
+        .bender-images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .bender-images img {
+            width: 30%;
+            border: 3px solid #0ff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            animation: zoomIn 1s ease-in-out;
+        }
+        .bender-images img:hover {
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -195,7 +231,7 @@
 
     <div class="clock-section">
         <div id="clock" class="clock"></div>
-        <p>Próximo estreno de One Piece: <span id="releaseInfo">31 de Julio 2024, 17:00</span></p>
+        <p>Próximo estreno de One Piece: <span id="releaseInfo">4 de Julio 2024, 17:00</span></p>
     </div>
 
     <div class="video-photo-section">
@@ -210,60 +246,48 @@
             <div class="info-menu">
                 <ul>
                     <li><a href="#">Garp Galaxy Impact Cine</a></li>
-                    <li><a href="#">Estreno 31/7/2024</a></li>
-                    <li><a href="#">Episodio 1113</a></li>
+                    <li><a href="#">Estreno 4/7/2024</a></li>
+                    <li><a href="#">Más Información</a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="cursor"></div>
+    <div class="bender-section">
+        <h2>Diseñador el gran Bender</h2>
+        <div class="bender-images">
+            <img src="images/capitulos.jpg" alt="Capítulo 1110">
+            <img src="images/capitulos.jpg" alt="Capítulo 1111">
+            <img src="images/capitulos.jpg" alt="Capítulo 1112">
+        </div>
+    </div>
 
     <script>
+        // Script para el reloj
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // Script para eliminar el loader
+        window.addEventListener('load', () => {
+            document.getElementById('loader').style.display = 'none';
+        });
+
+        // Script para cursor personalizado
         document.addEventListener('mousemove', (e) => {
             const cursor = document.querySelector('.cursor');
             cursor.style.left = `${e.pageX}px`;
             cursor.style.top = `${e.pageY}px`;
         });
-
-        window.addEventListener('load', () => {
-            document.getElementById('loader').style.display = 'none';
-        });
-
-        // Lista de videos
-        const videoSources = [
-            'videos/garp-impact.mp4',
-            'videos/garp-impact2.mp4',
-            'videos/garp-impact3.mp4',
-            'videos/garp-impact4.mp4'
-             'videos/garp-impact6.mp4',
-            'videos/garp-impact7.mp4',
-            'videos/garp-impact8.mp4'
-        ];
-        
-        let currentVideoIndex = 0;
-        const videoPlayer = document.getElementById('videoPlayer');
-        
-        // Reproducir el siguiente video cuando el actual termine
-        videoPlayer.addEventListener('ended', () => {
-            currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
-            videoPlayer.src = videoSources[currentVideoIndex];
-            videoPlayer.play();
-        });
-
-        // Inicializar el primer video
-        videoPlayer.src = videoSources[currentVideoIndex];
-
-        // Función para actualizar el reloj
-        function updateClock() {
-            const now = new Date();
-            const clockElement = document.getElementById('clock');
-            clockElement.textContent = now.toLocaleTimeString();
-        }
-
-        // Actualizar el reloj cada segundo
-        setInterval(updateClock, 1000);
-        updateClock(); // Llamada inicial para mostrar el reloj inmediatamente
     </script>
+
+    <div class="cursor"></div>
 </body>
 </html>
+
