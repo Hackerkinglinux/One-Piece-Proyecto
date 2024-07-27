@@ -206,3 +206,32 @@ body {
     50% { transform: scale(1.1); opacity: 0.8; }
     100% { transform: scale(1); opacity: 1; }
 }
+
+.clock-section .tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Clock Section tooltip Cine Garp*/
+
+.clock-section .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 200px;
+    background-color: #0ff;
+    color: #000;
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%; /* Posiciona el tooltip arriba del texto */
+    left: 50%;
+    margin-left: -100px; /* Centra el tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.clock-section .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
