@@ -3,25 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>One Piece</title>
+    <title>One Piece - Página Personal</title>
     <style>
-        /* Estilos generales */
         body {
-            font-family: Arial, sans-serif;
-            background: #000;
-            color: #fff;
             margin: 0;
-            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: #000;
+            overflow-x: hidden;
         }
+
+        /* Capa de carga */
+        #loader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .spinner {
+            border: 8px solid #000;
+            border-top: 8px solid #0ff;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Estilo del banner de héroe */
         .hero-banner {
-            background: url('images/hero-banner.jpeg') no-repeat center center/cover;
-            height: 300px;
+            background: url('images/banner-top.jpg') no-repeat center center fixed;
+            background-size: cover;
             color: #fff;
             text-align: center;
-            padding: 50px 0;
-            font-size: 2.5em;
-            font-weight: bold;
+            padding: 80px 20px;
+            font-size: 3em;
+            position: relative;
+            animation: glow 1.5s infinite alternate;
         }
+        @keyframes glow {
+            0% { text-shadow: 0 0 10px #00f, 0 0 20px #00f, 0 0 30px #0ff, 0 0 40px #0ff; }
+            100% { text-shadow: 0 0 20px #f0f, 0 0 30px #f0f, 0 0 40px #f0f, 0 0 50px #f0f; }
+        }
+
+        /* Estilo de la sección de bienvenida */
         .welcome-section {
             text-align: center;
             padding: 30px;
@@ -31,13 +65,104 @@
             box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
             animation: fadeIn 2s ease-in-out;
         }
-        .welcome-section h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        .welcome-section p {
+
+        /* Estilo de la sección de video y foto */
+        .video-photo-section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 20px;
+        }
+        .video-section {
+            flex: 1;
+            margin-right: 20px;
+            animation: slideIn 1.5s ease-out;
+            position: relative;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .video-section video {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+        }
+        .photo-section {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        .photo-section img {
+            max-width: 100%;
+            border: 3px solid #0ff;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+            animation: zoomIn 1s ease-in-out;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Estilo del mini menú */
+        .info-menu {
+            position: absolute;
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(34, 34, 34, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .photo-section:hover .info-menu {
+            opacity: 1;
+        }
+        .info-menu ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .info-menu ul li {
+            margin: 10px 0;
+        }
+        .info-menu ul li a {
+            color: #0ff;
+            text-decoration: none;
             font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
         }
+        .info-menu ul li a:hover {
+            background-color: #0ff;
+            transform: scale(1.1);
+        }
+
+        /* Efecto de cursor personalizado */
+        .cursor {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #0ff;
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: background 0.3s;
+            z-index: 10000;
+        }
+        .cursor:hover {
+            background: #f0f;
+        }
+
         /* Estilo del reloj */
         .clock-section {
             text-align: center;
@@ -52,43 +177,7 @@
             font-size: 2em;
             font-weight: bold;
         }
-        /* Estilo del video y la foto */
-        .video-photo-section {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin: 20px;
-        }
-        .video-section {
-            flex: 1;
-            margin-right: 20px;
-        }
-        .photo-section {
-            flex: 1;
-            text-align: center;
-        }
-        .photo-section img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-        }
-        .info-menu {
-            margin-top: 10px;
-        }
-        .info-menu ul {
-            list-style: none;
-            padding: 0;
-        }
-        .info-menu li {
-            margin: 5px 0;
-        }
-        .info-menu a {
-            color: #0ff;
-            text-decoration: none;
-        }
-        .info-menu a:hover {
-            text-decoration: underline;
-        }
+
         /* Sección de "Diseñador el gran Bender" */
         .bender-section {
             text-align: center;
@@ -124,72 +213,65 @@
             50% { transform: scale(1.1); opacity: 0.8; }
             100% { transform: scale(1); opacity: 1; }
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes zoomIn {
-            from { transform: scale(0.5); }
-            to { transform: scale(1); }
-        }
-        /* Efecto de cursor personalizado */
-        .cursor {
+
+        /* Estilo del menú de mapa */
+        #mapMenu {
             position: fixed;
-            width: 10px;
-            height: 10px;
-            background: #0ff;
-            border-radius: 50%;
-            pointer-events: none;
-            transform: translate(-50%, -50%);
-            transition: background 0.3s;
-            z-index: 10000;
-        }
-        .cursor:hover {
-            background: #f0f;
-        }
-        /* Menú de mapa */
-        .map-menu {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 1000;
-            background: #222;
-            border-radius: 10px;
-            overflow: hidden;
-            width: 250px;
-            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+            top: 10%;
+            left: 5%;
+            width: 300px;
+            background: rgba(34, 34, 34, 0.9);
+            border: 2px solid #0ff;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
             transform: scale(0);
             transform-origin: top left;
-            transition: transform 0.5s ease-out;
+            transition: transform 0.6s ease-in-out;
+            z-index: 10001;
         }
-        .map-menu.open {
+        #mapMenu.open {
             transform: scale(1);
         }
-        .map-menu h3 {
-            background: #0ff;
-            margin: 0;
-            padding: 10px;
-            color: #000;
-            font-size: 1.5em;
-            text-align: center;
+        #mapMenuToggle {
             cursor: pointer;
-        }
-        .map-menu ul {
-            list-style: none;
+            background: #0ff;
+            color: #000;
             padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2em;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        #mapMenuToggle:hover {
+            background-color: #00aaff;
+            color: #fff;
+        }
+        #mapMenu ul {
+            list-style-type: none;
+            padding: 0;
             margin: 0;
         }
-        .map-menu li {
+        #mapMenu ul li {
             margin: 10px 0;
-            padding: 10px;
-            border-bottom: 1px solid #0ff;
         }
-        .map-menu li a {
+        #mapMenu ul li a {
             color: #0ff;
             text-decoration: none;
+            font-size: 1.2em;
+            transition: background-color 0.3s, transform 0.3s;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
         }
-        .map-menu li a:hover {
-            text-decoration: underline;
+        #mapMenu ul li a:hover {
+            background-color: #0ff;
+            transform: scale(1.1);
+        }
+
+        /* Contenidos adicionales */
+        .container {
+            padding: 20px;
         }
     </style>
 </head>
@@ -199,90 +281,90 @@
     </div>
 
     <div class="hero-banner">
-        Bienvenido al Mundo de One Piece
+        <h1>One Piece</h1>
     </div>
 
-    <div class="welcome-section">
-        <h1>¡Explora el Universo de One Piece!</h1>
-        <p>Aquí encontrarás todo lo que necesitas saber sobre la increíble serie One Piece.</p>
-    </div>
-
-    <div class="clock-section">
-        <div id="clock" class="clock"></div>
-        <p>Próximo estreno de One Piece: <span id="releaseInfo">4 de Julio 2024, 17:00</span></p>
-    </div>
-
-    <div class="video-photo-section">
-        <div class="video-section">
-            <video id="videoPlayer" width="100%" controls>
-                <source src="videos/garp-impact.mp4" type="video/mp4">
-                Tu navegador no soporta el formato de video.
-            </video>
+    <div class="container">
+        <div class="welcome-section">
+            <h2>¡Bienvenido a la página de One Piece!</h2>
+            <p>Explora el mundo de One Piece con noticias, videos y más.</p>
         </div>
-        <div class="photo-section">
-            <img src="images/banner-video.jpeg" alt="One Piece">
-            <div class="info-menu">
-                <ul>
-                    <li><a href="#">Garp Galaxy Impact Cine</a></li>
-                    <li><a href="#">Estreno 4/7/2024</a></li>
-                    <li><a href="#">Más Información</a></li>
-                </ul>
+
+        <div class="video-photo-section">
+            <div class="video-section">
+                <video src="videos/onepiece-intro.mp4" controls></video>
+            </div>
+            <div class="photo-section">
+                <img src="images/onepiece-photo.jpg" alt="One Piece">
+                <div class="info-menu">
+                    <ul>
+                        <li><a href="#noticias">Últimas Noticias</a></li>
+                        <li><a href="#episodios">Episodios</a></li>
+                        <li><a href="#merch">Merchandising</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="bender-section">
-        <h2>Diseñador el gran Bender</h2>
-        <div class="bender-images">
-            <img src="images/capitulos.jpg" alt="Capítulo 1110">
-            <img src="images/capitulos.jpg" alt="Capítulo 1111">
-            <img src="images/capitulos.jpg" alt="Capítulo 1112">
+        <div class="clock-section">
+            <h2>Reloj de la Aventura</h2>
+            <div class="clock" id="clock">00:00:00</div>
         </div>
-    </div>
 
-    <div class="map-menu" id="mapMenu">
-        <h3 id="mapMenuToggle">Abrir Mapa</h3>
-        <ul>
-            <li><a href="#">Mapa del Tesoro 1</a></li>
-            <li><a href="#">Mapa del Tesoro 2</a></li>
-            <li><a href="#">Mapa del Tesoro 3</a></li>
-        </ul>
+        <div class="bender-section">
+            <h2>Diseñador el gran Bender</h2>
+            <div class="bender-images">
+                <img src="images/episode1.jpg" alt="Episodio 1">
+                <img src="images/episode2.jpg" alt="Episodio 2">
+                <img src="images/episode3.jpg" alt="Episodio 3">
+            </div>
+        </div>
+
+        <div id="mapMenu">
+            <div id="mapMenuToggle">Menú del Mapa</div>
+            <ul>
+                <li><a href="#mapa1">Mapa 1</a></li>
+                <li><a href="#mapa2">Mapa 2</a></li>
+                <li><a href="#mapa3">Mapa 3</a></li>
+            </ul>
+        </div>
     </div>
 
     <script>
-        // Script para el reloj
-        function updateClock() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
+        document.addEventListener('DOMContentLoaded', function() {
+            // Cargar y ocultar el loader
+            const loader = document.getElementById('loader');
+            setTimeout(() => loader.style.display = 'none', 2000);
 
-        // Script para eliminar el loader
-        window.addEventListener('load', () => {
-            document.getElementById('loader').style.display = 'none';
-        });
+            // Controlar el reloj en tiempo real
+            function updateClock() {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
+            }
+            setInterval(updateClock, 1000);
 
-        // Script para cursor personalizado
-        document.addEventListener('mousemove', (e) => {
-            const cursor = document.querySelector('.cursor');
-            cursor.style.left = `${e.pageX}px`;
-            cursor.style.top = `${e.pageY}px`;
-        });
-
-        // Script para el menú de mapa
-        document.getElementById('mapMenuToggle').addEventListener('click', () => {
+            // Controlar la animación del menú del mapa
             const mapMenu = document.getElementById('mapMenu');
-            mapMenu.classList.toggle('open');
-            const isOpen = mapMenu.classList.contains('open');
-            document.getElementById('mapMenuToggle').textContent = isOpen ? 'Cerrar Mapa' : 'Abrir Mapa';
+            const mapMenuToggle = document.getElementById('mapMenuToggle');
+            mapMenuToggle.addEventListener('click', () => {
+                mapMenu.classList.toggle('open');
+            });
+
+            // Controlar el cursor personalizado
+            const cursor = document.createElement('div');
+            cursor.className = 'cursor';
+            document.body.appendChild(cursor);
+
+            document.addEventListener('mousemove', (e) => {
+                cursor.style.top = `${e.clientY}px`;
+                cursor.style.left = `${e.clientX}px`;
+            });
         });
     </script>
-
-    <div class="cursor"></div>
 </body>
 </html>
+
 
