@@ -20,3 +20,30 @@ document.addEventListener('mousemove', (e) => {
     cursor.style.left = `${e.pageX}px`;
     cursor.style.top = `${e.pageY}px`;
 });
+
+// Script la transicion de info de episodio de estreno 
+document.addEventListener('DOMContentLoaded', () => {
+    const episodes = document.querySelectorAll('.video-photo-section');
+    let currentIndex = 0;
+
+    function showEpisode(index) {
+        episodes.forEach((ep, i) => {
+            ep.style.display = i === index ? 'flex' : 'none';
+        });
+    }
+
+    function showNextEpisode() {
+        currentIndex = (currentIndex + 1) % episodes.length;
+        showEpisode(currentIndex);
+    }
+
+    function showPrevEpisode() {
+        currentIndex = (currentIndex - 1 + episodes.length) % episodes.length;
+        showEpisode(currentIndex);
+    }
+
+    document.getElementById('nextButton').addEventListener('click', showNextEpisode);
+    document.getElementById('prevButton').addEventListener('click', showPrevEpisode);
+
+    showEpisode(currentIndex);
+});

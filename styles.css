@@ -235,3 +235,52 @@ body {
     visibility: visible;
     opacity: 1;
 }
+
+/* Estilo general para los botones de navegación */
+.nav-button {
+    background: #0ff;
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    margin: 10px;
+}
+
+.nav-button:hover {
+    background: #0cc;
+    transform: scale(1.05);
+}
+
+.nav-button:active {
+    background: #0aa;
+    transform: scale(0.95);
+}
+
+.nav-button-prev {
+    background: #f0f;
+}
+
+.nav-button-prev:hover {
+    background: #d0d;
+}
+
+.nav-button-prev:active {
+    background: #b0b;
+}
+
+.nav-button-next {
+    background: #0ff;
+}
+
+.nav-button-next:hover {
+    background: #0cc;
+}
+
+.nav-button-next:active {
+    background: #0aa;
+}
