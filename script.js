@@ -47,3 +47,46 @@ document.addEventListener('DOMContentLoaded', () => {
 
     showEpisode(currentIndex);
 });
+
+// Script para reincio de reloj de estreno
+// Función para calcular el tiempo restante hasta el próximo sábado a las 10:30 PM
+function getTimeUntilNextEpisode() {
+    const now = new Date();
+    const currentDay = now.getDay();
+    const currentHour = now.getHours();
+    const currentMinute = now.getMinutes();
+    const currentSecond = now.getSeconds();
+
+    // Calcular el próximo sábado a las 10:30 PM
+    const daysUntilSaturday = (6 - currentDay + 7) % 7; // 6 es sábado
+    const nextSaturday = new Date(now);
+    nextSaturday.setDate(now.getDate() + daysUntilSaturday);
+    nextSaturday.setHours(22, 30, 0, 0); // 22:30:00:000 es 10:30 PM
+
+    // Si hoy es sábado y ya son las 10:30 PM o más, ajustar al próximo sábado
+    if (currentDay === 6 && (currentHour > 22 || (currentHour === 22 && currentMinute >= 30))) {
+        nextSaturday.setDate(nextSaturday.getDate() + 7);
+    }
+
+    const timeUntilNextEpisode = nextSaturday - now;
+
+    return {
+        days: Math.floor(timeUntilNextEpisode / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((timeUntilNextEpisode / (1000 * 60 * 60)) % 24),
+        minutes: Math.floor((timeUntilNextEpisode / (1000 * 60)) % 60),
+        seconds: Math.floor((timeUntilNextEpisode / 1000) % 60)
+    };
+}
+
+// Función para actualizar el cronómetro
+function updateClock() {
+    const timeRemaining = getTimeUntilNextEpisode();
+
+    document.getElementById('clock').textContent = 
+        `${timeRemaining.days}d ${String(timeRemaining.hours).padStart(2, '0')}h ` +
+        `${String(timeRemaining.minutes).padStart(2, '0')}m ${String(timeRemaining.seconds).padStart(2, '0')}s`;
+}
+
+// Actualizar el cronómetro cada segundo
+setInterval(updateClock, 1000);
+updateClock();
