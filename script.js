@@ -81,8 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showEpisode(currentIndex);
 });
 
-// Función para la musica
-// script.js
+// Función para la música
 
 // Toggle music menu
 function toggleMusicMenu() {
@@ -116,7 +115,7 @@ document.getElementById('musicSelector').addEventListener('change', function() {
     const trackTitle = document.getElementById('trackTitle');
     audioPlayer.src = this.value;
     trackTitle.textContent = this.options[this.selectedIndex].text;
-    audioPlayer.play(); // This will only work after a user interaction
+    // audioPlayer.play(); // Este código no se debe ejecutar sin interacción del usuario
 });
 
 document.getElementById('playPauseButton').addEventListener('click', playPause);
@@ -140,5 +139,6 @@ function changeTrack(index) {
     const trackTitle = document.getElementById('trackTitle');
     audioPlayer.src = tracks[index].value;
     trackTitle.textContent = tracks[index].text;
-    audioPlayer.play();
+    // audioPlayer.play(); // Este código no se debe ejecutar sin interacción del usuario
 }
+
