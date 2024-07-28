@@ -82,84 +82,63 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Función para la musica
-const audioPlayer = document.getElementById('audioPlayer');
-const playPauseButton = document.getElementById('playPauseButton');
-const trackTitle = document.getElementById('trackTitle');
-const musicMenu = document.getElementById('musicMenu');
-const musicSelector = document.getElementById('musicSelector');
+// script.js
 
-const tracks = [
-    { title: "One Piece Inspirational Music _ Instrumental", src: "musica/track1.mp3" },
-    { title: "Rescue Garp Theme One Piece EP 1103 Soundtrack", src: "musica/track2.mp3" },
-    { title: "Elley Duhé - Middle of the Night [16D AUDIO _ NOT 8D]", src: "musica/track3.mp3" }
-];
-
-let currentTrackIndex = 0;
-let isPlaying = false;
-
+// Toggle music menu
 function toggleMusicMenu() {
-    if (musicMenu.style.display === 'none' || musicMenu.style.display === '') {
-        musicMenu.style.display = 'flex';
-    } else {
-        musicMenu.style.display = 'none';
-    }
+    const musicMenu = document.getElementById('musicMenu');
+    musicMenu.classList.toggle('hidden');
+}
+
+// Play or pause the music
+function playMusic() {
+    const audioPlayer = document.getElementById('audioPlayer');
+    audioPlayer.play();
+}
+
+function pauseMusic() {
+    const audioPlayer = document.getElementById('audioPlayer');
+    audioPlayer.pause();
 }
 
 function playPause() {
-    if (!isPlaying) {
-        audioPlayer.play().then(() => {
-            isPlaying = true;
-            playPauseButton.textContent = '⏸️';
-        }).catch(error => {
-            console.log('Autoplay was prevented:', error);
-        });
+    const audioPlayer = document.getElementById('audioPlayer');
+    if (audioPlayer.paused) {
+        audioPlayer.play();
     } else {
         audioPlayer.pause();
-        isPlaying = false;
-        playPauseButton.textContent = '▶️';
     }
 }
 
+// Change track
+document.getElementById('musicSelector').addEventListener('change', function() {
+    const audioPlayer = document.getElementById('audioPlayer');
+    const trackTitle = document.getElementById('trackTitle');
+    audioPlayer.src = this.value;
+    trackTitle.textContent = this.options[this.selectedIndex].text;
+    audioPlayer.play(); // This will only work after a user interaction
+});
+
+document.getElementById('playPauseButton').addEventListener('click', playPause);
+
+// Handle next and previous track buttons
+let currentTrackIndex = 0;
+const tracks = document.getElementById('musicSelector').options;
+
 function nextTrack() {
     currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
-    loadTrack(currentTrackIndex);
+    changeTrack(currentTrackIndex);
 }
 
 function prevTrack() {
     currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
-    loadTrack(currentTrackIndex);
+    changeTrack(currentTrackIndex);
 }
 
-function loadTrack(index) {
-    audioPlayer.src = tracks[index].src;
-    trackTitle.textContent = tracks[index].title;
-    audioPlayer.play().then(() => {
-        isPlaying = true;
-        playPauseButton.textContent = '⏸️';
-    }).catch(error => {
-        console.log('Autoplay was prevented:', error);
-    });
+function changeTrack(index) {
+    const audioPlayer = document.getElementById('audioPlayer');
+    const trackTitle = document.getElementById('trackTitle');
+    audioPlayer.src = tracks[index].value;
+    trackTitle.textContent = tracks[index].text;
+    audioPlayer.play();
 }
-
-function playSelectedTrack() {
-    const selectedTrack = musicSelector.value;
-    audioPlayer.src = selectedTrack;
-    const selectedTrackTitle = musicSelector.options[musicSelector.selectedIndex].text;
-    trackTitle.textContent = selectedTrackTitle;
-    audioPlayer.play().then(() => {
-        isPlaying = true;
-        playPauseButton.textContent = '⏸️';
-    }).catch(error => {
-        console.log('Autoplay was prevented:', error);
-    });
-}
-
-function pauseMusic() {
-    audioPlayer.pause();
-    isPlaying = false;
-    playPauseButton.textContent = '▶️';
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    loadTrack(currentTrackIndex);
-});
