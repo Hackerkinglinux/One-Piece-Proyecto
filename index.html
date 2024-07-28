@@ -16,6 +16,26 @@
         Bienvenido al Mundo de One Piece
     </div>
 
+    <div class="music-player-container">
+        <div id="musicPlayer">
+            <button id="toggleMusicMenu">🎵</button>
+            <div id="musicMenu" class="hidden">
+                <audio id="audioPlayer" controls>
+                    <source src="musica/track1.mp3" type="audio/mp3">
+                    Tu navegador no soporta el reproductor de audio.
+                </audio>
+                <select id="musicSelector">
+                    <option value="musica/track1.mp3">Rescue Garp Theme One Piece EP 1103 Soundtrack</option>
+                    <option value="musica/track2.mp3">Elley Duhé - Middle of the Night [16D AUDIO _ NOT 8D]</option>
+                    <option value="musica/track3.mp3">The Weeknd - Earned It (8D Audio)</option>
+                </select>
+                <button id="playMusic">Play</button>
+                <button id="pauseMusic">Pause</button>
+                <button id="resumeMusic">Resume</button>
+            </div>
+        </div>
+    </div>
+
     <div class="welcome-section">
         <h1>¡Explora el Universo de One Piece!</h1>
         <p>Aquí encontrarás todo lo que necesitas saber sobre la increíble serie One Piece.</p>
@@ -50,7 +70,7 @@
     <div class="video-photo-section" id="episode2" style="display: none;">
         <div class="video-section">
             <video id="videoPlayer2" width="100%" controls>
-                <source src="videos/garp-impact.mp4" type="video/mp4">
+                <source src="videos/one-piece-garp-puño.mp4" type="video/mp4">
                 Tu navegador no soporta el formato de video.
             </video>
         </div>

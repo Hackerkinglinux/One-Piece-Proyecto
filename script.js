@@ -1,54 +1,5 @@
- // Script para el reloj
- function updateClock() {
-    const now = new Date();
-    const hours = String(now.getHours()).padStart(2, '0');
-    const minutes = String(now.getMinutes()).padStart(2, '0');
-    const seconds = String(now.getSeconds()).padStart(2, '0');
-    document.getElementById('clock').textContent = `${hours}:${minutes}:${seconds}`;
-}
-setInterval(updateClock, 1000);
-updateClock();
+// Script para el reloj y el cronómetro
 
-// Script para eliminar el loader
-window.addEventListener('load', () => {
-    document.getElementById('loader').style.display = 'none';
-});
-
-// Script para cursor personalizado
-document.addEventListener('mousemove', (e) => {
-    const cursor = document.querySelector('.cursor');
-    cursor.style.left = `${e.pageX}px`;
-    cursor.style.top = `${e.pageY}px`;
-});
-
-// Script la transicion de info de episodio de estreno 
-document.addEventListener('DOMContentLoaded', () => {
-    const episodes = document.querySelectorAll('.video-photo-section');
-    let currentIndex = 0;
-
-    function showEpisode(index) {
-        episodes.forEach((ep, i) => {
-            ep.style.display = i === index ? 'flex' : 'none';
-        });
-    }
-
-    function showNextEpisode() {
-        currentIndex = (currentIndex + 1) % episodes.length;
-        showEpisode(currentIndex);
-    }
-
-    function showPrevEpisode() {
-        currentIndex = (currentIndex - 1 + episodes.length) % episodes.length;
-        showEpisode(currentIndex);
-    }
-
-    document.getElementById('nextButton').addEventListener('click', showNextEpisode);
-    document.getElementById('prevButton').addEventListener('click', showPrevEpisode);
-
-    showEpisode(currentIndex);
-});
-
-// Script para reincio de reloj de estreno
 // Función para calcular el tiempo restante hasta el próximo sábado a las 10:30 PM
 function getTimeUntilNextEpisode() {
     const now = new Date();
@@ -79,7 +30,7 @@ function getTimeUntilNextEpisode() {
 }
 
 // Función para actualizar el cronómetro
-function updateClock() {
+function updateCountdownClock() {
     const timeRemaining = getTimeUntilNextEpisode();
 
     document.getElementById('clock').textContent = 
@@ -88,5 +39,81 @@ function updateClock() {
 }
 
 // Actualizar el cronómetro cada segundo
-setInterval(updateClock, 1000);
-updateClock();
+setInterval(updateCountdownClock, 1000);
+updateCountdownClock();
+
+// Script para eliminar el loader
+window.addEventListener('load', () => {
+    document.getElementById('loader').style.display = 'none';
+});
+
+// Script para cursor personalizado
+document.addEventListener('mousemove', (e) => {
+    const cursor = document.querySelector('.cursor');
+    cursor.style.left = `${e.pageX}px`;
+    cursor.style.top = `${e.pageY}px`;
+});
+
+// Script para la transición de info de episodio de estreno 
+document.addEventListener('DOMContentLoaded', () => {
+    const episodes = document.querySelectorAll('.video-photo-section');
+    let currentIndex = 0;
+
+    function showEpisode(index) {
+        episodes.forEach((ep, i) => {
+            ep.style.display = i === index ? 'flex' : 'none';
+        });
+    }
+
+    function showNextEpisode() {
+        currentIndex = (currentIndex + 1) % episodes.length;
+        showEpisode(currentIndex);
+    }
+
+    function showPrevEpisode() {
+        currentIndex = (currentIndex - 1 + episodes.length) % episodes.length;
+        showEpisode(currentIndex);
+    }
+
+    document.getElementById('nextButton').addEventListener('click', showNextEpisode);
+    document.getElementById('prevButton').addEventListener('click', showPrevEpisode);
+
+    showEpisode(currentIndex);
+});
+
+// Función para la musica
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleMusicMenuButton = document.getElementById('toggleMusicMenu');
+    const musicMenu = document.getElementById('musicMenu');
+    const audioPlayer = document.getElementById('audioPlayer');
+    const musicSelector = document.getElementById('musicSelector');
+    const playButton = document.getElementById('playMusic');
+    const pauseButton = document.getElementById('pauseMusic');
+    const resumeButton = document.getElementById('resumeMusic');
+
+    // Mostrar/ocultar el menú de música
+    toggleMusicMenuButton.addEventListener('click', function() {
+        musicMenu.classList.toggle('hidden');
+    });
+
+    // Cambiar la pista de música
+    musicSelector.addEventListener('change', function() {
+        audioPlayer.src = musicSelector.value;
+        audioPlayer.play();
+    });
+
+    // Reproducir música
+    playButton.addEventListener('click', function() {
+        audioPlayer.play();
+    });
+
+    // Pausar música
+    pauseButton.addEventListener('click', function() {
+        audioPlayer.pause();
+    });
+
+    // Reanudar música
+    resumeButton.addEventListener('click', function() {
+        audioPlayer.play();
+    });
+});

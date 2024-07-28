@@ -284,3 +284,69 @@ body {
 .nav-button-next:active {
     background: #0aa;
 }
+
+/* Estilo para el contenedor del reproductor de música */
+.music-player-container {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 1000;
+}
+
+/* Botón para mostrar/ocultar el menú de música */
+#toggleMusicMenu {
+    background-color: #0ff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+/* Menú de música oculto */
+#musicMenu.hidden {
+    display: none;
+}
+
+/* Menú de música visible */
+#musicMenu {
+    background-color: #111;
+    border: 2px solid #0ff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    animation: slideIn 0.5s ease-in-out;
+}
+
+/* Efecto de animación para mostrar el menú */
+@keyframes slideIn {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Estilo de los botones */
+#musicMenu button {
+    background-color: #0ff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#musicMenu button:hover {
+    background-color: #f0f;
+}
+
+/* Estilo del selector de música */
+#musicSelector {
+    background-color: #111;
+    color: #0ff;
+    border: 2px solid #0ff;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+}
+
