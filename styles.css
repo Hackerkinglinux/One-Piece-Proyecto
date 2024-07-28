@@ -286,67 +286,103 @@ body {
 }
 
 /* Estilo para el contenedor del reproductor de música */
-.music-player-container {
+.music-player {
     position: fixed;
-    top: 50%;
-    left: 0;
-    transform: translateY(-50%);
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    transition: transform 0.3s ease-in-out;
     z-index: 1000;
 }
 
-/* Botón para mostrar/ocultar el menú de música */
-#toggleMusicMenu {
-    background-color: #0ff;
-    border: none;
+.music-toggle {
+    background: #0ff;
     padding: 10px;
     border-radius: 50%;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    font-size: 1.5em;
+    color: #000;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    box-shadow: 0 0 10px #0ff;
 }
 
-/* Menú de música oculto */
-#musicMenu.hidden {
+.music-menu {
     display: none;
-}
-
-/* Menú de música visible */
-#musicMenu {
-    background-color: #111;
-    border: 2px solid #0ff;
-    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
-    animation: slideIn 0.5s ease-in-out;
+    width: 250px;
 }
 
-/* Efecto de animación para mostrar el menú */
-@keyframes slideIn {
-    from { transform: translateX(-100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+.music-controls {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
-/* Estilo de los botones */
-#musicMenu button {
-    background-color: #0ff;
+.music-controls button {
+    background: #0ff;
     border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
+    color: #000;
+    padding: 10px;
+    border-radius: 50%;
+    font-size: 1.5em;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    box-shadow: 0 0 10px #0ff;
+    transition: transform 0.3s ease-in-out;
 }
 
-#musicMenu button:hover {
-    background-color: #f0f;
+.music-controls button:hover {
+    transform: scale(1.1);
 }
 
-/* Estilo del selector de música */
-#musicSelector {
-    background-color: #111;
+.music-info {
     color: #0ff;
-    border: 2px solid #0ff;
-    border-radius: 5px;
-    padding: 5px;
+    font-size: 1.2em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.music-info span {
+    display: block;
     margin-top: 10px;
 }
+
+.music-selector {
+    text-align: center;
+}
+
+#musicSelector {
+    background: #0ff;
+    border: none;
+    color: #000;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+#playMusic, #pauseMusic {
+    background: #0ff;
+    border: none;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 5px;
+    box-shadow: 0 0 10px #0ff;
+    transition: transform 0.3s ease-in-out;
+}
+
+#playMusic:hover, #pauseMusic:hover {
+    transform: scale(1.1);
+}
+
 

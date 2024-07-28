@@ -16,22 +16,29 @@
         Bienvenido al Mundo de One Piece
     </div>
 
-    <div class="music-player-container">
-        <div id="musicPlayer">
-            <button id="toggleMusicMenu">🎵</button>
-            <div id="musicMenu" class="hidden">
-                <audio id="audioPlayer" controls>
-                    <source src="musica/track1.mp3" type="audio/mp3">
-                    Tu navegador no soporta el reproductor de audio.
-                </audio>
+    <div class="music-player">
+        <div class="music-toggle" onclick="toggleMusicMenu()">🎵</div>
+        <div class="music-menu" id="musicMenu">
+            <div class="music-controls">
+                <button id="prevButton" onclick="prevTrack()">⏮️</button>
+                <button id="playPauseButton" onclick="playPause()">⏯️</button>
+                <button id="nextButton" onclick="nextTrack()">⏭️</button>
+            </div>
+            <div class="music-info">
+                <span id="trackTitle">Section Musica Piece</span>
+            </div>
+            <audio id="audioPlayer">
+                <source src="musica/track1.mp3" type="audio/mp3">
+                Tu navegador no soporta el reproductor de audio.
+            </audio>
+            <div class="music-selector">
                 <select id="musicSelector">
-                    <option value="musica/track1.mp3">Rescue Garp Theme One Piece EP 1103 Soundtrack</option>
-                    <option value="musica/track2.mp3">Elley Duhé - Middle of the Night [16D AUDIO _ NOT 8D]</option>
-                    <option value="musica/track3.mp3">The Weeknd - Earned It (8D Audio)</option>
+                    <option value="musica/track1.mp3">One Piece Inspirational Music _ Instrumental</option>
+                    <option value="musica/track2.mp3">Rescue Garp Theme One Piece EP 1103 Soundtrack</option>
+                    <option value="musica/track3.mp3">Elley Duhé - Middle of the Night [16D AUDIO _ NOT 8D]</option>
                 </select>
-                <button id="playMusic">Play</button>
-                <button id="pauseMusic">Pause</button>
-                <button id="resumeMusic">Resume</button>
+                <button id="playMusic" onclick="playSelectedTrack()">Play</button>
+                <button id="pauseMusic" onclick="pauseMusic()">Pause</button>
             </div>
         </div>
     </div>

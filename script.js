@@ -82,38 +82,69 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Función para la musica
-document.addEventListener('DOMContentLoaded', function() {
-    const toggleMusicMenuButton = document.getElementById('toggleMusicMenu');
-    const musicMenu = document.getElementById('musicMenu');
-    const audioPlayer = document.getElementById('audioPlayer');
-    const musicSelector = document.getElementById('musicSelector');
-    const playButton = document.getElementById('playMusic');
-    const pauseButton = document.getElementById('pauseMusic');
-    const resumeButton = document.getElementById('resumeMusic');
+const audioPlayer = document.getElementById('audioPlayer');
+const playPauseButton = document.getElementById('playPauseButton');
+const trackTitle = document.getElementById('trackTitle');
+const musicMenu = document.getElementById('musicMenu');
+const musicSelector = document.getElementById('musicSelector');
 
-    // Mostrar/ocultar el menú de música
-    toggleMusicMenuButton.addEventListener('click', function() {
-        musicMenu.classList.toggle('hidden');
-    });
+const tracks = [
+    { title: "One Piece Inspirational Music _ Instrumental", src: "musica/track1.mp3" },
+    { title: "Rescue Garp Theme One Piece EP 1103 Soundtrack", src: "musica/track2.mp3" },
+    { title: "Elley Duhé - Middle of the Night [16D AUDIO _ NOT 8D]", src: "musica/track3.mp3" }
+];
 
-    // Cambiar la pista de música
-    musicSelector.addEventListener('change', function() {
-        audioPlayer.src = musicSelector.value;
+let currentTrackIndex = 0;
+
+function toggleMusicMenu() {
+    if (musicMenu.style.display === 'none' || musicMenu.style.display === '') {
+        musicMenu.style.display = 'flex';
+    } else {
+        musicMenu.style.display = 'none';
+    }
+}
+
+function playPause() {
+    if (audioPlayer.paused) {
         audioPlayer.play();
-    });
-
-    // Reproducir música
-    playButton.addEventListener('click', function() {
-        audioPlayer.play();
-    });
-
-    // Pausar música
-    pauseButton.addEventListener('click', function() {
+        playPauseButton.textContent = '⏸️';
+    } else {
         audioPlayer.pause();
-    });
+        playPauseButton.textContent = '▶️';
+    }
+}
 
-    // Reanudar música
-    resumeButton.addEventListener('click', function() {
-        audioPlayer.play();
-    });
+function nextTrack() {
+    currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
+    loadTrack(currentTrackIndex);
+}
+
+function prevTrack() {
+    currentTrackIndex = (currentTrackIndex - 1 + tracks.length) % tracks.length;
+    loadTrack(currentTrackIndex);
+}
+
+function loadTrack(index) {
+    audioPlayer.src = tracks[index].src;
+    trackTitle.textContent = tracks[index].title;
+    audioPlayer.play();
+    playPauseButton.textContent = '⏸️';
+}
+
+function playSelectedTrack() {
+    const selectedTrack = musicSelector.value;
+    audioPlayer.src = selectedTrack;
+    const selectedTrackTitle = musicSelector.options[musicSelector.selectedIndex].text;
+    trackTitle.textContent = selectedTrackTitle;
+    audioPlayer.play();
+    playPauseButton.textContent = '⏸️';
+}
+
+function pauseMusic() {
+    audioPlayer.pause();
+    playPauseButton.textContent = '▶️';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadTrack(currentTrackIndex);
 });
