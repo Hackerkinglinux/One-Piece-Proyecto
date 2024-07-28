@@ -95,6 +95,7 @@ const tracks = [
 ];
 
 let currentTrackIndex = 0;
+let isPlaying = false;
 
 function toggleMusicMenu() {
     if (musicMenu.style.display === 'none' || musicMenu.style.display === '') {
@@ -105,11 +106,16 @@ function toggleMusicMenu() {
 }
 
 function playPause() {
-    if (audioPlayer.paused) {
-        audioPlayer.play();
-        playPauseButton.textContent = '⏸️';
+    if (!isPlaying) {
+        audioPlayer.play().then(() => {
+            isPlaying = true;
+            playPauseButton.textContent = '⏸️';
+        }).catch(error => {
+            console.log('Autoplay was prevented:', error);
+        });
     } else {
         audioPlayer.pause();
+        isPlaying = false;
         playPauseButton.textContent = '▶️';
     }
 }
@@ -127,8 +133,12 @@ function prevTrack() {
 function loadTrack(index) {
     audioPlayer.src = tracks[index].src;
     trackTitle.textContent = tracks[index].title;
-    audioPlayer.play();
-    playPauseButton.textContent = '⏸️';
+    audioPlayer.play().then(() => {
+        isPlaying = true;
+        playPauseButton.textContent = '⏸️';
+    }).catch(error => {
+        console.log('Autoplay was prevented:', error);
+    });
 }
 
 function playSelectedTrack() {
@@ -136,12 +146,17 @@ function playSelectedTrack() {
     audioPlayer.src = selectedTrack;
     const selectedTrackTitle = musicSelector.options[musicSelector.selectedIndex].text;
     trackTitle.textContent = selectedTrackTitle;
-    audioPlayer.play();
-    playPauseButton.textContent = '⏸️';
+    audioPlayer.play().then(() => {
+        isPlaying = true;
+        playPauseButton.textContent = '⏸️';
+    }).catch(error => {
+        console.log('Autoplay was prevented:', error);
+    });
 }
 
 function pauseMusic() {
     audioPlayer.pause();
+    isPlaying = false;
     playPauseButton.textContent = '▶️';
 }
 
