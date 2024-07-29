@@ -91,7 +91,8 @@
     <!-- HTML para las partículas -->
     <div id="particles-js" class="particles-js"></div>
     <div id="lottie-container"></div>
-    <div id="lottie-container"></div>
+    <div class="star-wars"></div>
+    <div id="vantajs"></div>
 
     <script>
         // Inicializa Particles.js
@@ -235,6 +236,43 @@
 
         window.addEventListener('resize', () => {
             app.renderer.resize(window.innerWidth, window.innerHeight);
+        });
+
+        const starWarsContainer = document.querySelector('.star-wars');
+            const numStars = 200;
+        
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+                starWarsContainer.appendChild(star);
+            }
+
+        AOS.init();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const sound = new Howl({
+                src: ['musica/track-piece.mp3']
+            });
+
+            const buttons = document.querySelectorAll('.download-button, .info-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    sound.play();
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            VANTA.BIRDS({
+                el: "#vantajs",
+                backgroundColor: 0x000000,
+                color1: 0xff9900,
+                color2: 0x00ff00,
+                quantity: 3
+            });
         });
     </script>        
 </body>
