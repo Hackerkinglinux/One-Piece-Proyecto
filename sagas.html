@@ -57,6 +57,26 @@
         </div>
         <button class="carousel-button next">&gt;</button>
     </div>
+<!-- HTML para las partículas -->
+<div class="particles"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const particleContainer = document.querySelector('.particles');
+    const numParticles = 100;
+
+    for (let i = 0; i < numParticles; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.width = `${Math.random() * 10 + 5}px`;
+        particle.style.height = particle.style.width;
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.top = `${Math.random() * 100}vh`;
+        particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
+        particleContainer.appendChild(particle);
+    }
+});
+</script>
 </body>
 </html>
 
