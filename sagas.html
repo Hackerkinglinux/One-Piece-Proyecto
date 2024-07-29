@@ -5,13 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sagas de One Piece</title>
 <link rel="stylesheet" href="Sagas/sagas-styles.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"/>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
 <script src="Sagas/sagas-script.js" defer></script>
+<script src="Sagas/script-modal.js" defer></script>
 </head>
 <body>
-    <div class="header">
+    <div class="header animate__animated animate__fadeInDown">
         <h1>Sagas de One Piece</h1>
         <a href="#" class="menu-back-button">Volver al Menú</a>
-    </div>
+    </div>    
     <div class="sagas-container">
         <!-- Agrega más sagas aquí -->
         <div class="saga-card">
@@ -19,7 +27,8 @@
             <div class="saga-info">
                 <h2>Saga del East Blue</h2>
                 <p>Descripción de la saga del East Blue...</p>
-                <a href="download/saga1.zip" class="download-button">Descargar</a>
+                <a href="#" class="info-button">Más Información</a>
+                <a href="download/saga1.zip" class="download-button hvr-pulse-grow">Descargar</a>
             </div>
         </div>
         <div class="saga-card">
@@ -27,7 +36,8 @@
             <div class="saga-info">
                 <h2>Saga de Arabasta</h2>
                 <p>Descripción de la saga de Arabasta...</p>
-                <a href="download/saga2.zip" class="download-button">Descargar</a>
+                <a href="#" class="info-button">Más Información</a>
+                <a href="download/saga1.zip" class="download-button hvr-pulse-grow">Descargar</a>
             </div>
         </div>
         <!-- Más sagas aquí -->
@@ -57,9 +67,19 @@
         </div>
         <button class="carousel-button next">&gt;</button>
     </div>
+    <!-- Modal -->
+<div id="infoModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Información Detallada</h2>
+        <p>Detalles adicionales sobre la saga...</p>
+    </div>
+</div>
+
 <!-- HTML para las partículas -->
 <div class="particles"></div>
     <div class="star-wars"></div>
+    <div id="vantajs"></div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -89,6 +109,31 @@
                 starWarsContainer.appendChild(star);
             }
         });
+
+        AOS.init();
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const sound = new Howl({
+        src: ['sounds/click.mp3']
+    });
+
+    const buttons = document.querySelectorAll('.download-button, .info-button');
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            sound.play();
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    VANTA.BIRDS({
+        el: "#vantajs",
+        backgroundColor: 0x000000,
+        color1: 0xff9900,
+        color2: 0x00ff00,
+        quantity: 3
+    });
+});
         </script>        
 </body>
 </html>
