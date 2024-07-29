@@ -173,22 +173,48 @@ body {
 }
 
 /* Fondo LED en movimiento */
-@keyframes ledMovement {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 100%; }
+/* Estilo del fondo animado */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background: linear-gradient(45deg, #000, #111, #222, #333, #444, #555);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
 }
 
-body::before {
-    content: "";
-    position: fixed;
+@keyframes gradientAnimation {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* Efecto de partículas */
+.particles {
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #00f, #f0f, #0ff, #00f, #f0f, #0ff);
-    background-size: 400% 400%;
-    z-index: -1;
-    opacity: 0.3;
-    animation: ledMovement 15s infinite;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: -1; /* Asegúrate de que las partículas estén detrás del contenido */
 }
+
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background: #0ff;
+    opacity: 0.8;
+    pointer-events: none;
+    animation: particleAnimation 5s linear infinite;
+}
+
+@keyframes particleAnimation {
+    0% { transform: scale(0) translateY(0); opacity: 1; }
+    100% { transform: scale(1) translateY(-100vh); opacity: 0; }
+}
+ 
+
+
 
