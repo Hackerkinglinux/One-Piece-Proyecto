@@ -5,9 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>One Piece</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="menu-styles.css">
     <script src="script.js" defer></script>
+    <script src="menu-script.js" defer></script>
 </head>
 <body>
+    <div class="menu">
+        <div class="menu-toggle" id="menuToggle">
+            &#9776; Menú
+        </div>
+        <div class="menu-content" id="menuContent">
+            <div class="menu-close" id="menuClose">&#10006;</div>
+            <ul>
+                <li><a href="sagas.html">Sagas de One Piece</a></li>
+                <li><a href="peliculas.html">Películas</a></li>
+            </ul>
+        </div>
+
     <div id="loader">
         <div class="spinner"></div>
     </div>
@@ -24,7 +38,7 @@
     <div class="clock-section">
         <div id="clock" class="clock"></div>
         <p class="tooltip">Próximo estreno de One Piece:
-            <span id="releaseInfo">4 de Julio 2024, 17:00</span>
+            <span id="releaseInfo">4 de Agosto 2024, 23:00</span>
             <span class="tooltiptext">Se viene cine señores</span>
         </p>
     </div>    
