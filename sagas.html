@@ -5,37 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sagas de One Piece</title>
     <link rel="stylesheet" href="sagas-styles.css">
+    <script src="sagas-script.js" defer></script>
 </head>
 <body>
-    <header>
+    <div class="header">
         <h1>Sagas de One Piece</h1>
-    </header>
-    <main>
-        <div class="carousel-container">
-            <div class="carousel">
-                <div class="carousel-item">
-                    <img src="images/saga-east-blue.jpg" alt="Saga East Blue">
-                    <div class="carousel-caption">
-                        <h2>Saga East Blue</h2>
-                        <p>La saga que inicia todo, donde conocemos a Luffy y su sueño de convertirse en el Rey de los Piratas.</p>
-                        <a href="descargas/saga-east-blue.html">Descargar</a>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img src="images/saga-alabasta.jpg" alt="Saga Alabasta">
-                    <div class="carousel-caption">
-                        <h2>Saga Alabasta</h2>
-                        <p>Luffy y su tripulación luchan contra Crocodile para salvar el reino de Alabasta.</p>
-                        <a href="descargas/saga-alabasta.html">Descargar</a>
-                    </div>
-                </div>
-                <!-- Agrega más sagas aquí -->
+        <a href="#" class="menu-back-button">Volver al Menú</a>
+    </div>
+    <div class="sagas-container">
+        <div class="saga-card">
+            <img src="images/saga-alabasta.jpg" alt="Saga 1">
+            <div class="saga-info">
+                <h2>Saga del East Blue</h2>
+                <p>Descripción de la saga del East Blue...</p>
+                <a href="download/saga1.zip" class="download-button">Descargar</a>
             </div>
-            <button class="carousel-button prev">Anterior</button>
-            <button class="carousel-button next">Siguiente</button>
         </div>
-    </main>
-    <script src="sagas-script.js" defer></script>
+        <div class="saga-card">
+            <img src="images/saga-east-blue.jpg" alt="Saga 2">
+            <div class="saga-info">
+                <h2>Saga de Arabasta</h2>
+                <p>Descripción de la saga de Arabasta...</p>
+                <a href="download/saga2.zip" class="download-button">Descargar</a>
+            </div>
+        </div>
+        <!-- Más sagas aquí -->
+    </div>
+
+    <div class="carousel-container">
+        <button class="carousel-button prev">&lt;</button>
+        <div class="carousel">
+            <div class="carousel-item">
+                <img src="images/one-piece-fondo.png" alt="Episodio 1">
+                <div class="carousel-caption">
+                    <h2>Episodio 1</h2>
+                    <p>Descripción del episodio 1...</p>
+                    <a href="episode1.html">Ver más</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/one-piece-fondo.png" alt="Episodio 2">
+                <div class="carousel-caption">
+                    <h2>Episodio 2</h2>
+                    <p>Descripción del episodio 2...</p>
+                    <a href="episode2.html">Ver más</a>
+                </div>
+            </div>
+            <!-- Más episodios aquí -->
+        </div>
+        <button class="carousel-button next">&gt;</button>
+    </div>
 </body>
 </html>
 
