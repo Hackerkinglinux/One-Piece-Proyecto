@@ -1,19 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const menuToggle = document.getElementById('menuToggle');
-    const menuContent = document.getElementById('menuContent');
-    const menuClose = document.getElementById('menuClose');
+    const menuButton = document.getElementById('menuButton');
+    const menuOverlay = document.getElementById('menuOverlay');
 
-    menuToggle.addEventListener('click', () => {
-        menuContent.classList.toggle('show');
+    menuButton.addEventListener('click', () => {
+        menuOverlay.classList.toggle('active');
     });
 
-    menuClose.addEventListener('click', () => {
-        menuContent.classList.remove('show');
-    });
-
-    menuContent.addEventListener('click', (event) => {
-        if (event.target === menuContent) {
-            menuContent.classList.remove('show');
-        }
+    menuOverlay.addEventListener('click', () => {
+        menuOverlay.classList.remove('active');
     });
 });

@@ -9,18 +9,22 @@
     <script src="script.js" defer></script>
     <script src="menu-script.js" defer></script>
 </head>
-<body>
-    <div class="menu">
-        <div class="menu-toggle" id="menuToggle">
-            &#9776; Menú
-        </div>
-        <div class="menu-content" id="menuContent">
-            <div class="menu-close" id="menuClose">&#10006;</div>
+<body>  <!-- Botón del menú -->
+    <div class="menu-button" id="menuButton">
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+        <div class="menu-line"></div>
+    </div>
+
+    <!-- Menú desplegable -->
+    <div class="menu-overlay" id="menuOverlay">
+        <div class="menu-content">
             <ul>
                 <li><a href="sagas.html">Sagas de One Piece</a></li>
                 <li><a href="peliculas.html">Películas</a></li>
             </ul>
         </div>
+    </div>
 
     <div id="loader">
         <div class="spinner"></div>
