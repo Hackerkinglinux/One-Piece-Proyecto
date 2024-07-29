@@ -8,49 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"/>
-    <style>
-        .particles, .star-wars {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            background: #0ff;
-            border-radius: 50%;
-            opacity: 0.7;
-            animation: move 10s linear infinite;
-        }
-
-        .star {
-            position: absolute;
-            background: #fff;
-            border-radius: 50%;
-            opacity: 0.6;
-            animation: twinkle 2s infinite alternate;
-        }
-
-        @keyframes move {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-100vh) scale(0.5); }
-        }
-
-        @keyframes twinkle {
-            0% { opacity: 0.6; }
-            100% { opacity: 1; }
-        }
-    </style>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.0/lottie.min.js"></script>
     <script src="Sagas/sagas-script.js" defer></script>
     <script src="Sagas/script-modal.js" defer></script>
 </head>
@@ -58,7 +19,7 @@
     <div class="header animate__animated animate__fadeInDown">
         <h1>Sagas de One Piece</h1>
         <a href="#" class="menu-back-button">Volver al Menú</a>
-    </div>
+    </div>    
     <div class="sagas-container">
         <!-- Agrega más sagas aquí -->
         <div class="saga-card">
@@ -106,7 +67,7 @@
         </div>
         <button class="carousel-button next">&gt;</button>
     </div>
-
+    
     <!-- Modal -->
     <div id="infoModal" class="modal">
         <div class="modal-content">
@@ -116,10 +77,7 @@
         </div>
     </div>
 
-    <!-- Contenedor para la animación Lottie -->
-    <div id="lottie-container" style="width: 500px; height: 500px;"></div>
-
-    <!-- HTML para las partículas y efectos de fondo -->
+    <!-- HTML para las partículas -->
     <div class="particles"></div>
     <div class="star-wars"></div>
     <div id="vantajs"></div>
@@ -128,7 +86,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             const particleContainer = document.querySelector('.particles');
             const numParticles = 100;
-
+        
             for (let i = 0; i < numParticles; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
@@ -139,17 +97,15 @@
                 particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
                 particleContainer.appendChild(particle);
             }
-
+        
             const starWarsContainer = document.querySelector('.star-wars');
             const numStars = 200;
-
+        
             for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
                 star.style.left = `${Math.random() * 100}vw`;
                 star.style.top = `${Math.random() * 100}vh`;
-                star.style.width = `${Math.random() * 2 + 1}px`;
-                star.style.height = star.style.width;
                 star.style.animationDuration = `${Math.random() * 2 + 1}s`;
                 starWarsContainer.appendChild(star);
             }
@@ -179,17 +135,7 @@
                 quantity: 3
             });
         });
-
-        // Inicializa Lottie (asegúrate de reemplazar con el archivo JSON de tu elección)
-        const lottieContainer = document.getElementById('lottie-container');
-        lottie.loadAnimation({
-            container: lottieContainer,
-            renderer: 'svg',
-            loop: true,
-            autoplay: true,
-            path: 'path/to/your/animation.json' // Cambia a la ruta de tu animación JSON
-        });
-    </script>
+    </script>        
 </body>
 </html>
 
