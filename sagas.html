@@ -61,37 +61,35 @@
 <div class="particles"></div>
     <div class="star-wars"></div>
 
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    // Partículas
-    const particleContainer = document.querySelector('.particles');
-    const numParticles = 200;
-
-    for (let i = 0; i < numParticles; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.width = `${Math.random() * 10 + 5}px`;
-        particle.style.height = particle.style.width;
-        particle.style.left = `${Math.random() * 100}vw`;
-        particle.style.top = `${Math.random() * 100}vh`;
-        particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
-        particleContainer.appendChild(particle);
-    }
-
-    // Estrellas estilo Star Wars
-    const starWarsContainer = document.querySelector('.star-wars');
-    const numStars = 500;
-
-    for (let i = 0; i < numStars; i++) {
-        const star = document.createElement('div');
-        star.className = 'star';
-        star.style.left = `${Math.random() * 100}vw`;
-        star.style.top = `${Math.random() * 100}vh`;
-        star.style.animationDuration = `${Math.random() * 3 + 2}s`;
-        starWarsContainer.appendChild(star);
-    }
-});
-</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const particleContainer = document.querySelector('.particles');
+            const numParticles = 100;
+        
+            for (let i = 0; i < numParticles; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = `${Math.random() * 10 + 5}px`;
+                particle.style.height = particle.style.width;
+                particle.style.left = `${Math.random() * 100}vw`;
+                particle.style.top = `${Math.random() * 100}vh`;
+                particle.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                particleContainer.appendChild(particle);
+            }
+        
+            const starWarsContainer = document.querySelector('.star-wars');
+            const numStars = 200;
+        
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+                star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+                starWarsContainer.appendChild(star);
+            }
+        });
+        </script>        
 </body>
 </html>
 
