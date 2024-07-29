@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sagas de One Piece</title>
-<link rel="stylesheet" href="Sagas/sagas-styles.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"/>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
-<script src="Sagas/sagas-script.js" defer></script>
-<script src="Sagas/script-modal.js" defer></script>
+    <link rel="stylesheet" href="Sagas/sagas-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.birds.min.js"></script>
+    <script src="Sagas/sagas-script.js" defer></script>
+    <script src="Sagas/script-modal.js" defer></script>
 </head>
 <body>
     <div class="header animate__animated animate__fadeInDown">
@@ -67,17 +67,18 @@
         </div>
         <button class="carousel-button next">&gt;</button>
     </div>
+    
     <!-- Modal -->
-<div id="infoModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Información Detallada</h2>
-        <p>Detalles adicionales sobre la saga...</p>
+    <div id="infoModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Información Detallada</h2>
+            <p>Detalles adicionales sobre la saga...</p>
+        </div>
     </div>
-</div>
 
-<!-- HTML para las partículas -->
-<div class="particles"></div>
+    <!-- HTML para las partículas -->
+    <div class="particles"></div>
     <div class="star-wars"></div>
     <div id="vantajs"></div>
 
@@ -113,30 +114,31 @@
         AOS.init();
 
         document.addEventListener('DOMContentLoaded', () => {
-    const sound = new Howl({
-        src: ['sounds/click.mp3']
-    });
+            const sound = new Howl({
+                src: ['sounds/click.mp3']
+            });
 
-    const buttons = document.querySelectorAll('.download-button, .info-button');
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            sound.play();
+            const buttons = document.querySelectorAll('.download-button, .info-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    sound.play();
+                });
+            });
         });
-    });
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    VANTA.BIRDS({
-        el: "#vantajs",
-        backgroundColor: 0x000000,
-        color1: 0xff9900,
-        color2: 0x00ff00,
-        quantity: 3
-    });
-});
-        </script>        
+        document.addEventListener('DOMContentLoaded', () => {
+            VANTA.BIRDS({
+                el: "#vantajs",
+                backgroundColor: 0x000000,
+                color1: 0xff9900,
+                color2: 0x00ff00,
+                quantity: 3
+            });
+        });
+    </script>        
 </body>
 </html>
+
 
 
 
