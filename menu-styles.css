@@ -1,51 +1,28 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #fff;
-    background: #000;
-    overflow-x: hidden;
-}
-
-.menu {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.menu-toggle {
-    background: #0ff;
-    color: #000;
-    padding: 10px 20px;
-    font-size: 1.2em;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.menu-toggle:hover {
-    background: #0cc;
-    transform: scale(1.1);
-}
-
+/* Estilos para el menú */
 .menu-content {
     display: none;
-    background: rgba(0, 0, 0, 0.9);
     position: fixed;
     top: 0;
     right: 0;
-    width: 100%;
+    width: 300px;
     height: 100%;
-    z-index: 999;
-    transition: transform 0.5s ease-in-out;
+    background-color: #111;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+    padding: 20px;
+}
+
+.menu-content.show {
+    display: block;
+    transform: translateX(0);
 }
 
 .menu-content ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    text-align: center;
-    padding-top: 50px;
 }
 
 .menu-content ul li {
@@ -56,30 +33,32 @@ body {
     color: #0ff;
     text-decoration: none;
     font-size: 1.5em;
-    transition: color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
 .menu-content ul li a:hover {
-    color: #0cc;
+    background-color: #0ff;
+    color: #111;
     transform: scale(1.1);
+    border-radius: 5px;
+    padding: 5px;
 }
 
-.menu-close {
+#menuClose {
     position: absolute;
     top: 20px;
-    right: 20px;
-    font-size: 2em;
-    color: #0ff;
+    left: 20px;
+    background: #0ff;
+    border: none;
+    padding: 10px;
+    font-size: 1em;
     cursor: pointer;
-    transition: transform 0.3s, color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.menu-close:hover {
-    color: #0cc;
+#menuClose:hover {
+    background-color: #111;
+    color: #0ff;
     transform: scale(1.1);
-}
-
-.menu-content.show {
-    display: block;
-    transform: translateX(0);
+    border-radius: 5px;
 }
